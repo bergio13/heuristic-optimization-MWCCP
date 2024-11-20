@@ -1,0 +1,217 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{booktabs} % For better table rules
+\usepackage{longtable} % For tables spanning multiple pages if necessary
+\usepackage{float}
+
+\title{Programming Problem 1}
+\author{}
+\date{November 2024}
+
+\begin{document}
+
+\maketitle
+
+Objective function to be minimized:
+\( f (\pi) = \sum_{(u, v) \in E} \sum_{(u', v') \in E | u< u'} (w_{u,v}+w_{u', v'}) \cdot \delta_{\pi}((u, v), (u', v') )\)
+where 
+\(\delta_{\pi}((u, v), (u', v') ) = 1 \; if pos_{\pi}(v) > pos_{\pi}(v') \)
+
+\section*{Deterministic Construction}
+
+\subsection*{Algorithm Description}
+
+This implementation addresses the \textbf{Minimum Weighted Crossing with Constraints Problem (MWCCP)} using a \textbf{deterministic greedy construction algorithm} to generate an ordering of \( V \) that adheres to the constraints. Below, we describe the key components, problem-specific adaptations, and parameters of the algorithm.
+
+
+\subsection*{Algorithm Components and Adaptations}
+
+\paragraph{Input Structure:}
+\begin{itemize}
+    \item The graph structure includes nodes \( U \) and \( V \), edges \( E \), and edge weights.
+    \item \textbf{Constraints:} A mapping of precedence relationships such that if \( v_1 \to v_2 \), node \( v_1 \) must precede \( v_2 \) in the final ordering.
+\end{itemize}
+
+\paragraph{Node Weight Precomputation:}
+To imporve efficiency, the algorithm precomputes the sum of incoming edge weights for each node in \( V \). This will serve as a heuristic for selecting the "best" candidate node during construction.
+
+\paragraph{Initialization of Candidates:}
+Nodes with an in-degree of zero (i.e., no unfulfilled constraints) are initialized as candidates for the ordering. These nodes are stored in a \texttt{deque} for efficient addition and removal.
+
+\paragraph{Greedy Node Selection:}
+At each step, the algorithm selects the node from the candidates with the smallest total incoming edge weight. This \textbf{problem-specific heuristic} aims to minimize high-cost crossings early in the construction process.
+
+\paragraph{Update Mechanism:}
+Once a node is selected, it is removed from the candidate set and appended to the ordering \( \pi \). The algorithm then reduces the in-degrees of its dependent nodes. If a dependent node's in-degree becomes zero, it is added to the candidate set.
+
+\paragraph{Solution Verification:}
+After constructing \( \pi \), the algorithm verifies:
+\begin{itemize}
+    \item All nodes in \( V \) are included exactly once.
+    \item All precedence constraints are respected
+\end{itemize}
+
+\subsection*{Key Adaptations}
+\begin{itemize}
+    \item \textbf{Problem-Specific Heuristic:} The algorithm prioritizes nodes with lower edge weights to reduce crossings early in the construction.
+    \item \textbf{Constraint Management:} Using in-degrees to dynamically track feasible candidates ensures constraints are respected throughout the process.
+    \item \textbf{Solution Verification:} A final verification step guarantees correctness.
+\end{itemize}
+
+\subsection*{Performance}
+The quality of the solution given by our Deterministic Construction Heuristic is competitive as it is visible from the competition results, while being very fast. Below we report some performance metrics for the different test instance sizes.
+
+\paragraph{Small:}
+Average construction time: 0.000557 seconds
+\begin{itemize}
+\item inst\_50\_4\_00002: Time= 0.000799 s, Cost= 31619.0   
+\item inst\_50\_4\_00004: Time= 0.000259 s, Cost= 8582.0    
+\item inst\_50\_4\_00007: Time= 0.000155 s, Cost= 3463.0    
+\item inst\_50\_4\_00005: Time= 0.000122 s, Cost= 6034.0    
+\item inst\_50\_4\_00009: Time= 0.000128 s, Cost= 2633.0    
+\item inst\_50\_4\_00003: Time= 0.000148 s, Cost= 15511.0   
+\item inst\_50\_4\_00006: Time= 0.000166 s, Cost= 4883.0    
+\item inst\_50\_4\_00010: Time= 0.000119 s, Cost= 1658.0    
+\item inst\_50\_4\_00001: Time= 0.000279 s, Cost= 84883.0   
+\item inst\_50\_4\_00008: Time= 0.000426 s, Cost= 3005.0 
+\end{itemize}
+
+\paragraph{Medium}
+
+\begin{itemize}
+\item inst\_200\_20\_00008: Time=0.000852 s, Cost=709644.0  
+\item inst\_200\_20\_00001: Time=0.001486 s, Cost=23033165.0
+\item inst\_200\_20\_00009: Time=0.000805 s, Cost=547596.0  
+\item inst\_200\_20\_00010: Time=0.000881 s, Cost=461537.0  
+\item inst\_200\_20\_00006: Time=0.000879 s, Cost=1217519.0 
+\item inst\_200\_20\_00004: Time=0.000938 s, Cost=2551528.0 
+\item inst\_200\_20\_00005: Time=0.001722 s, Cost=1627621.0 
+\item inst\_200\_20\_00003: Time=0.001898 s, Cost=4361007.0 
+\item inst\_200\_20\_00007: Time=0.001528 s, Cost=908103.0  
+\item inst\_200\_20\_00002: Time=0.002308 s, Cost=8390614.0 
+\end{itemize}
+
+\paragraph{Medium-Large}
+\begin{itemize}
+\item inst\_500\_40\_00001: Time=0.012615 s,  Cost=40802322.0
+\item inst\_500\_40\_00010: Time=0.021615 s,  Cost=247294126.0
+\item inst\_500\_40\_00019: Time=0.015958 s,  Cost=532473137.0
+\item inst\_500\_40\_00013: Time=0.012978 s,  Cost=334007118.0
+\item inst\_500\_40\_00007: Time=0.016719 s,  Cost=168022855.0
+\item inst\_500\_40\_00016: Time=0.015179 s,  Cost=437097158.0
+\item inst\_500\_40\_00004: Time=0.009197 s,  Cost=94454966.0
+\end{itemize}
+
+
+\paragraph{Large}
+\begin{itemize}
+\item inst\_1000\_60\_00005: Time=0.032712 s,  Cost=1065285851.0
+\item inst\_1000\_60\_00002: Time=0.066785 s,  Cost=5340801153.0
+\item inst\_1000\_60\_00004: Time=0.039137 s,  Cost=1614552426.0
+\item inst\_1000\_60\_00001: Time=0.136459 s,  Cost=15151194763.0
+\item inst\_1000\_60\_00003: Time=0.045279 s,  Cost=2701197831.0
+\item inst\_1000\_60\_00007: Time=0.027055 s,  Cost=569249713.0
+\item inst\_1000\_60\_00006: Time=0.030169 s,  Cost=767270792.0
+\item inst\_1000\_60\_00008: Time=0.039558 s,  Cost=451262171.0
+\item inst\_1000\_60\_00009: Time=0.027395 s,  Cost=358976591.0
+\item inst\_1000\_60\_00010: Time=0.031849 s,  Cost=293146116.0
+\end{itemize}
+
+
+\section*{Randomized Construction}
+
+\subsection*{Small}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+\midrule
+\texttt{inst\_50\_4\_00002} & 0.003626 & 30855.97 & 27857.00 & 32643.00 & 1050.59 \\
+\texttt{inst\_50\_4\_00004} & 0.003219 & 9172.10  & 7928.00  & 10239.00 & 500.92  \\
+\texttt{inst\_50\_4\_00007} & 0.001821 & 3578.43  & 2827.00  & 4096.00  & 288.79  \\
+\texttt{inst\_50\_4\_00005} & 0.002545 & 5569.87  & 4853.00  & 6219.00  & 351.73  \\
+\texttt{inst\_50\_4\_00009} & 0.002607 & 2492.43  & 2091.00  & 2784.00  & 191.61  \\
+\texttt{inst\_50\_4\_00003} & 0.003283 & 15485.43 & 13478.00 & 16528.00 & 722.92  \\
+\texttt{inst\_50\_4\_00006} & 0.002801 & 4650.20  & 4092.00  & 5232.00  & 290.86  \\
+\texttt{inst\_50\_4\_00010} & 0.001948 & 1620.17  & 1355.00  & 1975.00  & 131.56  \\
+\texttt{inst\_50\_4\_00001} & 0.003809 & 84930.00 & 80297.00 & 88682.00 & 2078.92 \\
+\texttt{inst\_50\_4\_00008} & 0.001744 & 2915.70  & 2136.00  & 3360.00  & 273.16  \\
+\midrule
+\textbf{Summary Statistics} & \textbf{0.002740} & \textbf{16127.03} & - & - & - \\
+\bottomrule
+\end{tabular}
+\label{tab:performance_metrics}
+\end{table}
+
+\subsection*{Medium}
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+\midrule
+\texttt{inst\_200\_20\_00010} & 0.015873 & 456531.27  & 445306.00   & 470534.00   & 7330.93   \\
+\texttt{inst\_200\_20\_00009} & 0.015896 & 543713.67  & 521951.00   & 568060.00   & 11855.02  \\
+\texttt{inst\_200\_20\_00006} & 0.019273 & 1207213.20 & 1166898.00  & 1238370.00  & 18112.10  \\
+\texttt{inst\_200\_20\_00003} & 0.029675 & 4327121.80 & 4250721.00  & 4399702.00  & 42645.01  \\
+\texttt{inst\_200\_20\_00002} & 0.043474 & 8361784.40 & 8195701.00  & 8506730.00  & 82622.20  \\
+\texttt{inst\_200\_20\_00004} & 0.037687 & 2551007.27 & 2490237.00  & 2615850.00  & 30495.64  \\
+\texttt{inst\_200\_20\_00007} & 0.030310 & 904974.73  & 881311.00   & 939154.00   & 15387.23  \\
+\texttt{inst\_200\_20\_00001} & 0.061063 & 23195717.50 & 22931228.00 & 23599133.00 & 162599.73 \\
+\texttt{inst\_200\_20\_00008} & 0.016568 & 713576.87  & 679658.00   & 739042.00   & 15210.27  \\
+\texttt{inst\_200\_20\_00005} & 0.021958 & 1613500.70 & 1561975.00  & 1656848.00  & 23931.89  \\
+\midrule
+\textbf{Summary Statistics} & \textbf{0.029178} & \textbf{4387514.14} & - & - & - \\
+\bottomrule
+\end{tabular}
+\label{tab:medium_performance_metrics}
+\end{table}
+
+\subsection*{Medium-Large}
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+\midrule
+\texttt{inst\_500\_40\_00001} & 0.177799 & 41306375.60  & 40921403.00  & 41835187.00  & 249191.77  \\
+\texttt{inst\_500\_40\_00010} & 0.396382 & 248177497.60 & 246238999.00 & 249837668.00 & 920296.47  \\
+\texttt{inst\_500\_40\_00019} & 0.603033 & 533048783.97 & 528410832.00 & 536610229.00 & 2055959.77 \\
+\texttt{inst\_500\_40\_00013} & 0.450295 & 334334851.00 & 332129824.00 & 336682608.00 & 1098089.99 \\
+\texttt{inst\_500\_40\_00007} & 0.342089 & 167237198.67 & 165989443.00 & 168598596.00 & 719070.85  \\
+\texttt{inst\_500\_40\_00016} & 0.535916 & 436747201.67 & 433165807.00 & 439570395.00 & 1724318.23 \\
+\texttt{inst\_500\_40\_00004} & 0.261199 & 94402713.37  & 92471418.00  & 95619239.00  & 828955.05  \\
+\midrule
+\textbf{Summary Statistics} & \textbf{0.395245} & \textbf{265036374.55} & - & - & - \\
+\bottomrule
+\end{tabular}
+\label{tab:medium_large_performance_metrics}
+\end{table}
+
+\subsection*{Large}
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+\midrule
+\texttt{inst\_1000\_60\_00005} & 1.940377 & 1067764674.70  & 1060835463.00  & 1075136067.00  & 3443214.33  \\
+\texttt{inst\_1000\_60\_00002} & 5.258952 & 5339427349.17  & 5316206983.00  & 5358163297.00  & 9952612.22  \\
+\texttt{inst\_1000\_60\_00004} & 2.576052 & 1618919043.03  & 1604354503.00  & 1629522719.00  & 5881501.28  \\
+\texttt{inst\_1000\_60\_00001} & 9.653994 & 15145125818.07 & 15119309857.00 & 15174139010.00 & 15114903.03 \\
+\texttt{inst\_1000\_60\_00003} & 3.577870 & 2710183271.13  & 2698638355.00  & 2723048821.00  & 6434495.93  \\
+\texttt{inst\_1000\_60\_00007} & 1.234546 & 568833774.80   & 564743332.00   & 571513933.00   & 1777165.09  \\
+\texttt{inst\_1000\_60\_00006} & 1.506673 & 771255574.13   & 765180918.00   & 777979955.00   & 3043546.59  \\
+\texttt{inst\_1000\_60\_00008} & 1.053052 & 450177254.10   & 446090463.00   & 455253372.00   & 2137433.51  \\
+\texttt{inst\_1000\_60\_00009} & 0.886946 & 357376938.03   & 354133103.00   & 359544918.00   & 1668191.08  \\
+\texttt{inst\_1000\_60\_00010} & 0.773536 & 294319001.80   & 291894077.00   & 297714026.00   & 1198184.49  \\
+\midrule
+\textbf{Summary Statistics} & \textbf{2.846200} & \textbf{2832338269.90} & - & - & - \\
+\bottomrule
+\end{tabular}
+\label{tab:large_performance_metrics}
+\end{table}
+
+\end{document}
