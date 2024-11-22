@@ -533,7 +533,7 @@ The tests were ran on a Macbook Pro 16" M2 Pro. The VND algorithm is determinist
 	\label{tab:large_performance_metrics_vnd}
 \end{table}
 
-\section*{Greedy Randomized Adaptive Search Procedure(GRASP)}
+\section*{Q7: Greedy Randomized Adaptive Search Procedure(GRASP)}
 \subsection*{Algorithm and Adaptations}
 In this implementation GRASP uses greedy randomised construction and the VND implementation for local search.  The greedy randomised contruction uses a combination of a greedy approach and randomness to get a solution after which it is refined using VND. The algorithm itself has these parameters that can influence the result: \textbf{max iterations}, \textbf{alpha} (How random is the algorithm), \textbf{neighborhood structures}, \textbf{step function}, \textbf{vnd max iterations}.
 
@@ -541,7 +541,7 @@ In this implementation GRASP uses greedy randomised construction and the VND imp
 The alpha parameter influences the randomness of the algorithm. It can have a value of 0 to 1 where 0 is purely greedy while 1 being completely random.
 
 \subsection*{Performance}
-The tests were ran on a Macbook Pro 16" M2 Pro. All the test have been ran with the following parameters: 
+The tests were ran on a PC with an AMD Ryzen 3700x processor. All the test have been ran with the following parameters: 
 \begin{itemize}
 	\item \textbf{Max iterations:} 25 (10 for medium\_large and large)
 	\item \textbf{Neighborhood structures:} Swap, Reverse, Insert
@@ -558,18 +558,18 @@ The tests were ran on a Macbook Pro 16" M2 Pro. All the test have been ran with 
 		\toprule
 		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
 		\midrule
-		\texttt{inst\_50\_4\_00002} & 0.104611 & 24933.6 & 23982.0 & 27000.0 & 1103.55 \\ 
-		\texttt{inst\_50\_4\_00004} & 0.021516 & 7460.2  & 6942.0  & 8067.0  & 390.92 \\ 
-		\texttt{inst\_50\_4\_00007} & 0.037690 & 2345.4  & 2099.0  & 2652.0  & 219.31 \\ 
-		\texttt{inst\_50\_4\_00005} & 0.041543 & 3898.0  & 3691.0  & 4188.0  & 207.01 \\ 
-		\texttt{inst\_50\_4\_00009} & 0.037616 & 1533.2  & 1385.0  & 1802.0  & 152.88 \\ 
-		\texttt{inst\_50\_4\_00003} & 0.045658 & 13267.2 & 12821.0 & 13560.0 & 266.90 \\ 
-		\texttt{inst\_50\_4\_00006} & 0.038624 & 3226.6  & 3102.0  & 3336.0  & 91.00  \\ 
-		\texttt{inst\_50\_4\_00010} & 0.033737 & 1081.2  & 899.0   & 1624.0  & 276.06 \\ 
-		\texttt{inst\_50\_4\_00001} & 0.088662 & 77435.4 & 74900.0 & 80848.0 & 2078.90 \\ 
-		\texttt{inst\_50\_4\_00008} & 0.034032 & 1581.2  & 1470.0  & 1762.0  & 99.07  \\ 
+		\texttt{inst\_50\_4\_00001} & 1.17 & 79825.4 & 79218.0 & 80828.0 & 545.06 \\ 
+		\texttt{inst\_50\_4\_00002} & 0.92 & 27288.4 & 26506.0 & 28157.0 & 526.89 \\ 
+		\texttt{inst\_50\_4\_00003} & 0.42 & 13809.0 & 13572.0 & 13989.0 & 178.18 \\ 
+		\texttt{inst\_50\_4\_00004} & 0.23 & 7648.8 & 7476.0 & 7940.0 & 173.73 \\ 
+		\texttt{inst\_50\_4\_00005} & 0.34 & 4642.0 & 4330.0 & 4845.0 & 185.67 \\ 
+		\texttt{inst\_50\_4\_00006} & 0.62 & 3681.2 & 3445.0 & 3908.0 & 152.88 \\ 
+		\texttt{inst\_50\_4\_00007} & 0.62 & 2516.0 & 2354.0 & 2698.0 & 112.45 \\ 
+		\texttt{inst\_50\_4\_00008} & 0.6 & 2004.6 & 1865.0 & 2196.0 & 120.72 \\ 
+		\texttt{inst\_50\_4\_00009} & 0.68 & 1773.6 & 1629.0 & 1875.0 & 90.85 \\ 
+		\texttt{inst\_50\_4\_00010} & 0.26 & 1131.4 & 1043.0 & 1169.0 & 45.96 \\
 		\midrule
-		\textbf{Summary Statistics} & \textbf{0.0484} & \textbf{13676.2} & - & - & - \\
+		\textbf{Summary Statistics} & \textbf{0.5849} & \textbf{14432.04} & - & - & - \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:performance_metrics_small_grasp}
@@ -583,18 +583,9 @@ The tests were ran on a Macbook Pro 16" M2 Pro. All the test have been ran with 
 		\toprule 
 		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
 		\midrule 
-		\texttt{inst\_200\_20\_00010} & 3.9998 & 426375.8 & 405780.0 & 449650.0 & 14684.48 \\ 
-		\texttt{inst\_200\_20\_00009} & 0.8330 & 525452.0 & 515265.0 & 537782.0 & 7186.38 \\ 
-		\texttt{inst\_200\_20\_00008} & 0.6071 & 642463.2 & 627365.0 & 663653.0 & 11891.28 \\  
-		\texttt{inst\_200\_20\_00007} & 1.4284 & 874448.0 & 862636.0 & 891027.0 & 12383.73 \\  
-		\texttt{inst\_200\_20\_00006} & 7.3983 & 1140584.6 & 1106569.0 & 1185142.0 & 28084.81 \\  
-		\texttt{inst\_200\_20\_00005} & 0.5746 & 1556662.8 & 1541167.0 & 1594146.0 & 19848.85 \\  
-		\texttt{inst\_200\_20\_00004} & 0.9376 & 2408182.2 & 2344128.0 & 2474783.0 & 45656.43 \\  
-		\texttt{inst\_200\_20\_00003} & 1.9283 & 4140673.8 & 4030008.0 & 4253200.0 & 71730.50 \\  
-		\texttt{inst\_200\_20\_00002} & 18.5041 & 8127653.6 & 7955555.0 & 8250767.0 & 138759.84 \\  
-		\texttt{inst\_200\_20\_00001} & 12.6312 & 22693077.6 & 22309294.0 & 22906959.0 & 219015.22 \\ 
+		\texttt{inst\_200\_20\_00001} & 4.29 & 22957546.0 & 22921184.0 & 23041333.0 & 44264.57 \\ \texttt{inst\_200\_20\_00002} & 3.69 & 8209250.2 & 8154934.0 & 8253885.0 & 40835.98 \\ \texttt{inst\_200\_20\_00003} & 3.59 & 4185841.2 & 4159695.0 & 4205705.0 & 17207.7 \\ \texttt{inst\_200\_20\_00004} & 3.43 & 2451719.6 & 2413639.0 & 2490880.0 & 30631.1 \\ \texttt{inst\_200\_20\_00005} & 3.66 & 1584010.6 & 1556196.0 & 1595436.0 & 14642.12 \\ \texttt{inst\_200\_20\_00006} & 3.44 & 1150608.2 & 1141859.0 & 1156385.0 & 5579.27 \\ \texttt{inst\_200\_20\_00007} & 3.27 & 854802.8 & 845512.0 & 864161.0 & 6697.14 \\ \texttt{inst\_200\_20\_00008} & 3.37 & 677203.8 & 665828.0 & 684392.0 & 6893.35 \\ \texttt{inst\_200\_20\_00009} & 3.29 & 529855.2 & 521401.0 & 539629.0 & 6847.5 \\ \texttt{inst\_200\_20\_00010} & 3.22 & 438115.4 & 431574.0 & 445352.0 & 4775.03 \\
 		\midrule 
-		\textbf{Summary Statistics} & \textbf{4.9745} & \textbf{6843733.10} & - & - \\ 
+		\textbf{Summary Statistics} & \textbf{3.5265} & \textbf{4303895.30} & - & - \\ 
 		\bottomrule
 	\end{tabular}
 	\label{tab:performance_metrics_medium_grasp}
@@ -606,17 +597,17 @@ The tests were ran on a Macbook Pro 16" M2 Pro. All the test have been ran with 
 	\centering
 	\begin{tabular}{lrrrrr}
 		\toprule
-		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} \\
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev}\\
 		\midrule
-		\texttt{inst\_500\_40\_00001} & 81.91235 & 40161294.00  & 40109112.00  & 40208298.00 &  40657.71\\
-		\texttt{inst\_500\_40\_00010} & 20.28370 & 244675374.66 & 244449482.00 & 245069841.00 &  279909.67\\
-		\texttt{inst\_500\_40\_00019} & 15.30449 & 528918152.33 & 526096773.00 & 530461681.00 & 1997962.66\\
-		\texttt{inst\_500\_40\_00013} & 41.27252 & 330123938.0.00 & 328263464.00 & 331348436.00 & 1268323.96 \\
-		\texttt{inst\_500\_40\_00007} & 21.765949 & 164770693.00 & 163821323.00 & 165299551.00  & 672761.60\\
-		\texttt{inst\_500\_40\_00016} & 21.713235 & 432797031.67 & 431431993.00 & 434524182.00  & 1288086.91 \\
-		\texttt{inst\_500\_40\_00004} & 18.120888 & 93151443.33  & 92486709.00  & 94022108.00  & 643515.35 \\
+		\texttt{inst\_500\_40\_00001} & 20.78 & 40740212.6 & 40565759.0 & 40960542.0 & 154887.45 \\ 
+		\texttt{inst\_500\_40\_00004} & 21.38 & 93739147.0 & 93137965.0 & 94340261.0 & 486849.61 \\ 
+		\texttt{inst\_500\_40\_00007} & 21.98 & 165653853.4 & 165258096.0 & 166010370.0 & 314651.04 \\ 
+		\texttt{inst\_500\_40\_00010} & 21.67 & 245825271.2 & 244726346.0 & 246842160.0 & 787258.0 \\ 
+		\texttt{inst\_500\_40\_00013} & 22.02 & 332730733.4 & 332440673.0 & 332973892.0 & 200443.94 \\ 
+		\texttt{inst\_500\_40\_00016} & 22.24 & 433622311.6 & 432428284.0 & 434434410.0 & 703723.83 \\ 
+		\texttt{inst\_500\_40\_00019} & 23.66 & 532617102.0 & 532104573.0 & 532818456.0 & 267944.92 \\
 		\midrule
-		\textbf{Summary Statistics} & \textbf{0.395245} & \textbf{265036374.55} & - & -  \\
+		\textbf{Summary Statistics} & \textbf{21.9625} & \textbf{263561233.029} & - & -  \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:medium_large_performance_metrics_grasp}
@@ -630,25 +621,22 @@ The tests were ran on a Macbook Pro 16" M2 Pro. All the test have been ran with 
 		\toprule
 		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
 		\midrule
-		\texttt{inst\_1000\_60\_00005} & 1.940377 & 1067764674.70  & 1060835463.00  & 1075136067.00  & 3443214.33  \\
-		\texttt{inst\_1000\_60\_00002} & 5.258952 & 5339427349.17  & 5316206983.00  & 5358163297.00  & 9952612.22  \\
-		\texttt{inst\_1000\_60\_00004} & 2.576052 & 1618919043.03  & 1604354503.00  & 1629522719.00  & 5881501.28  \\
-		\texttt{inst\_1000\_60\_00001} & 9.653994 & 15145125818.07 & 15119309857.00 & 15174139010.00 & 15114903.03 \\
-		\texttt{inst\_1000\_60\_00003} & 3.577870 & 2710183271.13  & 2698638355.00  & 2723048821.00  & 6434495.93  \\
-		\texttt{inst\_1000\_60\_00007} & 1.234546 & 568833774.80   & 564743332.00   & 571513933.00   & 1777165.09  \\
-		\texttt{inst\_1000\_60\_00006} & 1.506673 & 771255574.13   & 765180918.00   & 777979955.00   & 3043546.59  \\
-		\texttt{inst\_1000\_60\_00008} & 1.053052 & 450177254.10   & 446090463.00   & 455253372.00   & 2137433.51  \\
-		\texttt{inst\_1000\_60\_00009} & 0.886946 & 357376938.03   & 354133103.00   & 359544918.00   & 1668191.08  \\
-		\texttt{inst\_1000\_60\_00010} & 0.773536 & 294319001.80   & 291894077.00   & 297714026.00   & 1198184.49  \\
+		\texttt{inst\_1000\_60\_00001} & 211.31 & 15114726123.33 & 15105796877.0 & 15126167244.0 & 8503728.49 \\ 
+		\texttt{inst\_1000\_60\_00002} & 184.74 & 5326073325.67 & 5323422739.0 & 5328749013.0 & 2174514.69 \\ 
+		\texttt{inst\_1000\_60\_00003} & 176.55 & 2696948330.0 & 2693097639.0 & 2699537071.0 & 2776203.58 \\ 
+		\texttt{inst\_1000\_60\_00004} & 172.56 & 1612654368.67 & 1609319679.0 & 1614493853.0 & 2362166.86 \\ 
+		\texttt{inst\_1000\_60\_00005} & 173.52 & 1063000458.0 & 1062286924.0 & 1063579260.0 & 536126.61 \\ 
+		\texttt{inst\_1000\_60\_00006} & 170.02 & 766986390.67 & 766479824.0 & 767312740.0 & 363130.81 \\ 
+		\texttt{inst\_1000\_60\_00007} & 168.53 & 566602180.33 & 566264562.0 & 567093908.0 & 355683.34 \\ 
+		\texttt{inst\_1000\_60\_00008} & 167.06 & 445837343.67 & 445039547.0 & 446809499.0 & 733022.61 \\ 
+		\texttt{inst\_1000\_60\_00009} & 165.4 & 355309325.0 & 355130133.0 & 355468041.0 & 138708.1 \\ 
+		\texttt{inst\_1000\_60\_00010} & 164.65 & 293417872.33 & 292475006.0 & 294371348.0 & 774214.73 \\
 		\midrule
-		\textbf{Summary Statistics} & \textbf{} & \textbf{} & - & - & - \\
+		\textbf{Summary Statistics} & \textbf{175.44} & \textbf{2824155571.77} & - & - & - \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:large_performance_metrics_grasp}
 \end{table}
-
-
-\section*{Q7: GRASP}
 
 \section*{Q8: General Variable Neighborhood Search(GVNS)}
 \subsection*{Algorithm and Adaptations}
