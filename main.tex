@@ -240,7 +240,7 @@ The results are computed using a single iteration and a parameter $\alpha = 0.6$
 \textbf{Summary Statistics} & \textbf{0.002740} & \textbf{16127.03} & - & - & - \\
 \bottomrule
 \end{tabular}
-\label{tab:performance_metrics}
+\label{tab:performance_metrics_randomized}
 \end{table}
 
 \subsubsection*{Medium}
@@ -265,7 +265,7 @@ The results are computed using a single iteration and a parameter $\alpha = 0.6$
 \textbf{Summary Statistics} & \textbf{0.029178} & \textbf{4387514.14} & - & - & - \\
 \bottomrule
 \end{tabular}
-\label{tab:medium_performance_metrics}
+\label{tab:medium_performance_metrics_randomized}
 \end{table}
 
 \subsubsection*{Medium-Large}
@@ -287,7 +287,7 @@ The results are computed using a single iteration and a parameter $\alpha = 0.6$
 \textbf{Summary Statistics} & \textbf{0.395245} & \textbf{265036374.55} & - & - & - \\
 \bottomrule
 \end{tabular}
-\label{tab:medium_large_performance_metrics}
+\label{tab:medium_large_performance_metrics_randomized}
 \end{table}
 
 \subsubsection*{Large}
@@ -313,7 +313,7 @@ The results are computed using a single iteration and a parameter $\alpha = 0.6$
 \textbf{Summary Statistics} & \textbf{2.846200} & \textbf{2832338269.90} & - & - & - \\
 \bottomrule
 \end{tabular}
-\label{tab:large_performance_metrics}
+\label{tab:large_performance_metrics_randomized}
 \end{table}
 
 \section*{Q4: Local Search}
@@ -439,12 +439,219 @@ The order of the neighborhood functions also has a big influence on speed, and a
 
 
 \subsection*{Performance}
+The tests were ran on a Macbook Pro 16" M2 Pro. The VND algorithm is deterministic in these tests, and that is why the std dev was column  left out, the other columns were kept for appearance and to show that it was deterministic. All the test have been ran with the following parameters: 
+\begin{itemize}
+	\item \textbf{Max iterations:} 250
+	\item \textbf{Neighborhood order:} Swap, Reverse, Insert
+	\item \textbf{Step function:} First Improvement
+	\item \textbf{Times ran:} 10 for all instances except large which was 1 (only the time differs between runs)
+\end{itemize}
+
+\subsection*{Small}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost}  \\
+		\midrule
+		\texttt{inst\_50\_4\_00002} & 0.3237 & 23982.0 & 23982.0 & 23982.0 \\ 
+		\texttt{inst\_50\_4\_00004} & 0.3877 & 6534.0  & 6534.0  & 6534.0  \\ 
+		\texttt{inst\_50\_4\_00007} & 0.2896 & 2054.0  & 2054.0  & 2054.0  \\ 
+		\texttt{inst\_50\_4\_00005} & 0.3616 & 3580.0  & 3580.0  & 3580.0  \\ 
+		\texttt{inst\_50\_4\_00009} & 0.9380 & 1303.0  & 1303.0  & 1303.0  \\ 
+		\texttt{inst\_50\_4\_00003} & 0.4459 & 12278.0 & 12278.0 & 12278.0 \\ 
+		\texttt{inst\_50\_4\_00006} & 0.2992 & 2959.0  & 2959.0  & 2959.0  \\ 
+		\texttt{inst\_50\_4\_00010} & 0.2575 & 857.0   & 857.0   & 857.0   \\ 
+		\texttt{inst\_50\_4\_00001} & 1.0881 & 74406.0 & 74406.0 & 74406.0 \\ 
+		\texttt{inst\_50\_4\_00008} & 0.1650 & 1405.0  & 1405.0  & 1405.0  \\ 
+		\midrule
+		\textbf{Summary Statistics} & \textbf{0.4554} & \textbf{12935.8} & - & - \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:performance_metrics_small_vnd}
+\end{table}
+
+
+\subsection*{Medium}
+\begin{table}[H]
+ 	 \centering 
+ 	 \begin{tabular}{lrrrrr} 
+ 	 	\toprule 
+ 	 	\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} \\ 
+ 	 	\midrule 
+ 	 	\texttt{inst\_200\_20\_00010} & 0.9009 & 454212.00 & 454212.00 & 454212.00  \\ \texttt{inst\_200\_20\_00009} & 0.6965 & 539627.00 & 539627.00 & 539627.00 \\ \texttt{inst\_200\_20\_00008} & 0.9636 & 700167.00 & 700167.00 & 700167.00 \\  \texttt{inst\_200\_20\_00007} & 1.2543 & 892949.00 & 892949.00 & 892949.00 \\  \texttt{inst\_200\_20\_00006} & 1.1160 & 1198988.00 & 1198988.00 & 1198988.00 \\  \texttt{inst\_200\_20\_00005} & 1.6312 & 1608128.00 & 1608128.00 & 1608128.00 \\  \texttt{inst\_200\_20\_00004} & 2.0465 & 2524537.00 & 2524537.00 & 2524537.00 \\  \texttt{inst\_200\_20\_00003} & 2.0466 & 4308610.00 & 4308610.00 & 4308610.00 \\  \texttt{inst\_200\_20\_00002} & 3.8624 & 8306145.00 & 8306145.00 & 8306145.00 \\  \texttt{inst\_200\_20\_00001} & 5.4359 & 22865269.00 & 22865269.00 & 22865269.00 \\ 
+ 	 	\midrule 
+ 	 	\textbf{Summary Statistics} & \textbf{1.9953} & \textbf{4339863.2} & - & - \\ 
+ 	 	\bottomrule
+ 	  \end{tabular}
+ 	  \label{tab:performance_metrics_medium_vnd}
+\end{table}
+
+\subsection*{Medium-Large}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} \\
+		\midrule
+		\texttt{inst\_500\_40\_00001} & 7.713967 & 40746020.00  & 40746020.00  & 40746020.00  \\
+		\texttt{inst\_500\_40\_00010} & 19.30043 & 247021962.00 & 247021962.00 & 247021962.00  \\
+		\texttt{inst\_500\_40\_00019} & 26.84756 & 532160524.00 & 532160524.00 & 532160524.00 \\
+		\texttt{inst\_500\_40\_00013} & 28.13974 & 333729516.00 & 333729516.00 & 333729516.00 \\
+		\texttt{inst\_500\_40\_00007} & 14.91125 & 167816702.00 & 167816702.00 & 167816702.00  \\
+		\texttt{inst\_500\_40\_00016} & 25.80133 & 436785606.00 & 436785606.00 & 436785606.00  \\
+		\texttt{inst\_500\_40\_00004} & 11.56564 & 94332575.00  & 94332575.00  & 94332575.00  \\
+		\midrule
+		\textbf{Summary Statistics} & \textbf{19.1828} & \textbf{264656129.29} & - & -  \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:medium_large_performance_metrics_vnd}
+\end{table}
+
+\subsection*{Large}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} \\
+		\midrule
+		\texttt{inst\_1000\_60\_00005} & 48.58142 & 1065061908.00  & 1065061908.00  & 1065061908.00   \\
+		\texttt{inst\_1000\_60\_00002} & 126.88115 & 5340070725.00  & 5340070725.00  & 5340070725.00   \\
+		\texttt{inst\_1000\_60\_00004} & 47.21685 & 1614136455.00  & 1614136455.00  & 1614136455.00 \\
+		\texttt{inst\_1000\_60\_00001} & 275.15735 & 15149609242.00 & 15149609242.00 & 15149609242.00  \\
+		\texttt{inst\_1000\_60\_00003} & 98.87615 & 2700741000.00  & 2700741000.00  & 2700741000.00 \\
+		\texttt{inst\_1000\_60\_00007} & 32.09443 & 569122169.00   & 569122169.00   & 569122169.00 \\
+		\texttt{inst\_1000\_60\_00006} & 41.20420 & 767104436.00   & 767104436.00   & 767104436.00 \\
+		\texttt{inst\_1000\_60\_00008} & 34.37336 & 451129061.00   & 451129061.00   & 451129061.00  \\
+		\texttt{inst\_1000\_60\_00009} & 23.47634 & 358888563.00   & 358888563.00   & 358888563.00 \\
+		\texttt{inst\_1000\_60\_00010} & 23.55307 & 293069393.00   & 293069393.00   & 293069393.00 \\
+		\midrule
+		\textbf{Summary Statistics} & \textbf{2830893295.20} & \textbf{75.14143} & - & - & - \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:large_performance_metrics_vnd}
+\end{table}
+
+\section*{Greedy Randomized Adaptive Search Procedure(GRASP)}
+\subsection*{Algorithm and Adaptations}
+In this implementation GRASP uses greedy randomised construction and the VND implementation for local search.  The greedy randomised contruction uses a combination of a greedy approach and randomness to get a solution after which it is refined using VND. The algorithm itself has these parameters that can influence the result: \textbf{max iterations}, \textbf{alpha} (How random is the algorithm), \textbf{neighborhood structures}, \textbf{step function}, \textbf{vnd max iterations}.
+
+\paragraph{Alpha:}
+The alpha parameter influences the randomness of the algorithm. It can have a value of 0 to 1 where 0 is purely greedy while 1 being completely random.
+
+\subsection*{Performance}
+The tests were ran on a Macbook Pro 16" M2 Pro. All the test have been ran with the following parameters: 
+\begin{itemize}
+	\item \textbf{Max iterations:} 
+	\item \textbf{Neighborhood structures:} Swap, Reverse, Insert
+	\item \textbf{Step function:} First Improvement
+	\item \textbf{Alpha:} 
+	\item \textbf{Times ran:} 
+\end{itemize}
+
+\subsection*{Small}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+		\midrule
+		\texttt{inst\_50\_4\_00002} & 0.104611 & 24933.6 & 23982.0 & 27000.0 & 1103.55 \\ 
+		\texttt{inst\_50\_4\_00004} & 0.021516 & 7460.2  & 6942.0  & 8067.0  & 390.92 \\ 
+		\texttt{inst\_50\_4\_00007} & 0.037690 & 2345.4  & 2099.0  & 2652.0  & 219.31 \\ 
+		\texttt{inst\_50\_4\_00005} & 0.041543 & 3898.0  & 3691.0  & 4188.0  & 207.01 \\ 
+		\texttt{inst\_50\_4\_00009} & 0.037616 & 1533.2  & 1385.0  & 1802.0  & 152.88 \\ 
+		\texttt{inst\_50\_4\_00003} & 0.045658 & 13267.2 & 12821.0 & 13560.0 & 266.90 \\ 
+		\texttt{inst\_50\_4\_00006} & 0.038624 & 3226.6  & 3102.0  & 3336.0  & 91.00  \\ 
+		\texttt{inst\_50\_4\_00010} & 0.033737 & 1081.2  & 899.0   & 1624.0  & 276.06 \\ 
+		\texttt{inst\_50\_4\_00001} & 0.088662 & 77435.4 & 74900.0 & 80848.0 & 2078.90 \\ 
+		\texttt{inst\_50\_4\_00008} & 0.034032 & 1581.2  & 1470.0  & 1762.0  & 99.07  \\ 
+		\midrule
+		\textbf{Summary Statistics} & \textbf{0.0484} & \textbf{13676.2} & - & - & - \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:performance_metrics_small_grasp}
+\end{table}
+
+
+\subsection*{Medium}
+\begin{table}[H]
+	\centering 
+	\begin{tabular}{lrrrrr} 
+		\toprule 
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+		\midrule 
+		\texttt{inst\_200\_20\_00010} & 3.9998 & 426375.8 & 405780.0 & 449650.0 & 14684.48 \\ 
+		\texttt{inst\_200\_20\_00009} & 0.8330 & 525452.0 & 515265.0 & 537782.0 & 7186.38 \\ 
+		\texttt{inst\_200\_20\_00008} & 0.6071 & 642463.2 & 627365.0 & 663653.0 & 11891.28 \\  
+		\texttt{inst\_200\_20\_00007} & 1.4284 & 874448.0 & 862636.0 & 891027.0 & 12383.73 \\  
+		\texttt{inst\_200\_20\_00006} & 7.3983 & 1140584.6 & 1106569.0 & 1185142.0 & 28084.81 \\  
+		\texttt{inst\_200\_20\_00005} & 0.5746 & 1556662.8 & 1541167.0 & 1594146.0 & 19848.85 \\  
+		\texttt{inst\_200\_20\_00004} & 0.9376 & 2408182.2 & 2344128.0 & 2474783.0 & 45656.43 \\  
+		\texttt{inst\_200\_20\_00003} & 1.9283 & 4140673.8 & 4030008.0 & 4253200.0 & 71730.50 \\  
+		\texttt{inst\_200\_20\_00002} & 18.5041 & 8127653.6 & 7955555.0 & 8250767.0 & 138759.84 \\  
+		\texttt{inst\_200\_20\_00001} & 12.6312 & 22693077.6 & 22309294.0 & 22906959.0 & 219015.22 \\ 
+		\midrule 
+		\textbf{Summary Statistics} & \textbf{4.9745} & \textbf{6843733.10} & - & - \\ 
+		\bottomrule
+	\end{tabular}
+	\label{tab:performance_metrics_medium_grasp}
+\end{table}
+
+
+\subsection*{Medium-Large}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} \\
+		\midrule
+		\texttt{inst\_500\_40\_00001} & 81.91235 & 40161294.00  & 40109112.00  & 40208298.00 &  40657.71\\
+		\texttt{inst\_500\_40\_00010} & 20.28370 & 244675374.66 & 244449482.00 & 245069841.00 &  279909.67\\
+		\texttt{inst\_500\_40\_00019} & 15.30449 & 528918152.33 & 526096773.00 & 530461681.00 & 1997962.66\\
+		\texttt{inst\_500\_40\_00013} & 41.27252 & 330123938.0.00 & 328263464.00 & 331348436.00 & 1268323.96 \\
+		\texttt{inst\_500\_40\_00007} & 21.765949 & 164770693.00 & 163821323.00 & 165299551.00  & 672761.60\\
+		\texttt{inst\_500\_40\_00016} & 21.713235 & 432797031.67 & 431431993.00 & 434524182.00  & 1288086.91 \\
+		\texttt{inst\_500\_40\_00004} & 18.120888 & 93151443.33  & 92486709.00  & 94022108.00  & 643515.35 \\
+		\midrule
+		\textbf{Summary Statistics} & \textbf{0.395245} & \textbf{265036374.55} & - & -  \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:medium_large_performance_metrics_grasp}
+\end{table}
+
+
+\subsection*{Large}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+		\midrule
+		\texttt{inst\_1000\_60\_00005} & 1.940377 & 1067764674.70  & 1060835463.00  & 1075136067.00  & 3443214.33  \\
+		\texttt{inst\_1000\_60\_00002} & 5.258952 & 5339427349.17  & 5316206983.00  & 5358163297.00  & 9952612.22  \\
+		\texttt{inst\_1000\_60\_00004} & 2.576052 & 1618919043.03  & 1604354503.00  & 1629522719.00  & 5881501.28  \\
+		\texttt{inst\_1000\_60\_00001} & 9.653994 & 15145125818.07 & 15119309857.00 & 15174139010.00 & 15114903.03 \\
+		\texttt{inst\_1000\_60\_00003} & 3.577870 & 2710183271.13  & 2698638355.00  & 2723048821.00  & 6434495.93  \\
+		\texttt{inst\_1000\_60\_00007} & 1.234546 & 568833774.80   & 564743332.00   & 571513933.00   & 1777165.09  \\
+		\texttt{inst\_1000\_60\_00006} & 1.506673 & 771255574.13   & 765180918.00   & 777979955.00   & 3043546.59  \\
+		\texttt{inst\_1000\_60\_00008} & 1.053052 & 450177254.10   & 446090463.00   & 455253372.00   & 2137433.51  \\
+		\texttt{inst\_1000\_60\_00009} & 0.886946 & 357376938.03   & 354133103.00   & 359544918.00   & 1668191.08  \\
+		\texttt{inst\_1000\_60\_00010} & 0.773536 & 294319001.80   & 291894077.00   & 297714026.00   & 1198184.49  \\
+		\midrule
+		\textbf{Summary Statistics} & \textbf{} & \textbf{} & - & - & - \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:large_performance_metrics_grasp}
+\end{table}
+
 
 \section*{Q7: GRASP}
 
 \section*{Q8: General Variable Neighborhood Search(GVNS)}
 \subsection*{Algorithm and Adaptations}
-The GVNS combines the VND with random shaking to try to give the VND a chance to escape a local optima. In the implementation, it supports different implementations of VND and it has these parameters:  \textbf{shaking neighborhoods},  \textbf{local search neighborhoods},  \textbf{objective function},  \textbf{maximum number of iterations},  \textbf{vnd step function},  \textbf{vnd max iterations}. The only completely new parameter which was introduced was \textbf{shaking neighborhoods} and it is explained in the next paragraph.
+GVNS combines the VND with random shaking to try to give the VND a chance to escape a local optima. In the implementation, it supports different implementations of VND and it has these parameters:  \textbf{shaking neighborhoods},  \textbf{local search neighborhoods},  \textbf{objective function},  \textbf{maximum number of iterations},  \textbf{vnd step function},  \textbf{vnd max iterations}. The only completely new parameter which was introduced was \textbf{shaking neighborhoods} and it is explained in the next paragraph.
 
 \paragraph{Shaking neighborhoods:}
 Similar to neighborhoods, shaking neighborhoods are possible solutions which can be achieved using specific rules from the current solution. The shaking neighborhoods are special as they always provide only one random solution from the counterpart normal neighborhood. These were the implemented ones:
@@ -453,6 +660,113 @@ Similar to neighborhoods, shaking neighborhoods are possible solutions which can
 	\item \textbf{Insert neighborhood:} It returns a solution from the insert neighborhood.
 	\item \textbf{Reverse neighborhood:} It returns a solution from the reverse neighborhood.
 \end{itemize}
+
+\subsection*{Performance}
+The tests were ran on a Macbook Pro 16" M2 Pro.  The algorithm was limited to 15 min runtime on a single instance. All the test have been ran with the following parameters: 
+\begin{itemize}
+	\item \textbf{Max iterations:} 2
+	\item \textbf{Neighborhood order:} Swap, Reverse, Insert
+	\item \textbf{Neighborhood shake order:} Swap, Swap-3, Inesrt, Reverse
+	\item \textbf{Step function:} First Improvement
+	\item \textbf{VND max iterations:} 3
+	\item \textbf{Times ran:} 5 for small and medium, 3 for medium\_large and large
+\end{itemize}
+
+\subsection*{Small}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+		\midrule
+		\texttt{inst\_50\_4\_00002} & 0.104611 & 24933.6 & 23982.0 & 27000.0 & 1103.55 \\ 
+		\texttt{inst\_50\_4\_00004} & 0.021516 & 7460.2  & 6942.0  & 8067.0  & 390.92 \\ 
+		\texttt{inst\_50\_4\_00007} & 0.037690 & 2345.4  & 2099.0  & 2652.0  & 219.31 \\ 
+		\texttt{inst\_50\_4\_00005} & 0.041543 & 3898.0  & 3691.0  & 4188.0  & 207.01 \\ 
+		\texttt{inst\_50\_4\_00009} & 0.037616 & 1533.2  & 1385.0  & 1802.0  & 152.88 \\ 
+		\texttt{inst\_50\_4\_00003} & 0.045658 & 13267.2 & 12821.0 & 13560.0 & 266.90 \\ 
+		\texttt{inst\_50\_4\_00006} & 0.038624 & 3226.6  & 3102.0  & 3336.0  & 91.00  \\ 
+		\texttt{inst\_50\_4\_00010} & 0.033737 & 1081.2  & 899.0   & 1624.0  & 276.06 \\ 
+		\texttt{inst\_50\_4\_00001} & 0.088662 & 77435.4 & 74900.0 & 80848.0 & 2078.90 \\ 
+		\texttt{inst\_50\_4\_00008} & 0.034032 & 1581.2  & 1470.0  & 1762.0  & 99.07  \\ 
+		\midrule
+		\textbf{Summary Statistics} & \textbf{0.0484} & \textbf{13676.2} & - & - & - \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:performance_metrics_small_gvns}
+\end{table}
+
+
+\subsection*{Medium}
+\begin{table}[H]
+	\centering 
+	\begin{tabular}{lrrrrr} 
+		\toprule 
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+		\midrule 
+		\texttt{inst\_200\_20\_00010} & 3.9998 & 426375.8 & 405780.0 & 449650.0 & 14684.48 \\ 
+		\texttt{inst\_200\_20\_00009} & 0.8330 & 525452.0 & 515265.0 & 537782.0 & 7186.38 \\ 
+		\texttt{inst\_200\_20\_00008} & 0.6071 & 642463.2 & 627365.0 & 663653.0 & 11891.28 \\  
+		\texttt{inst\_200\_20\_00007} & 1.4284 & 874448.0 & 862636.0 & 891027.0 & 12383.73 \\  
+		\texttt{inst\_200\_20\_00006} & 7.3983 & 1140584.6 & 1106569.0 & 1185142.0 & 28084.81 \\  
+		\texttt{inst\_200\_20\_00005} & 0.5746 & 1556662.8 & 1541167.0 & 1594146.0 & 19848.85 \\  
+		\texttt{inst\_200\_20\_00004} & 0.9376 & 2408182.2 & 2344128.0 & 2474783.0 & 45656.43 \\  
+		\texttt{inst\_200\_20\_00003} & 1.9283 & 4140673.8 & 4030008.0 & 4253200.0 & 71730.50 \\  
+		\texttt{inst\_200\_20\_00002} & 18.5041 & 8127653.6 & 7955555.0 & 8250767.0 & 138759.84 \\  
+		\texttt{inst\_200\_20\_00001} & 12.6312 & 22693077.6 & 22309294.0 & 22906959.0 & 219015.22 \\ 
+		\midrule 
+		\textbf{Summary Statistics} & \textbf{4.9745} & \textbf{6843733.10} & - & - \\ 
+		\bottomrule
+	\end{tabular}
+	\label{tab:performance_metrics_medium_gvns}
+\end{table}
+
+
+\subsection*{Medium-Large}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} \\
+		\midrule
+		\texttt{inst\_500\_40\_00001} & 81.91235 & 40161294.00  & 40109112.00  & 40208298.00 &  40657.71\\
+		\texttt{inst\_500\_40\_00010} & 20.28370 & 244675374.66 & 244449482.00 & 245069841.00 &  279909.67\\
+		\texttt{inst\_500\_40\_00019} & 15.30449 & 528918152.33 & 526096773.00 & 530461681.00 & 1997962.66\\
+		\texttt{inst\_500\_40\_00013} & 41.27252 & 330123938.0.00 & 328263464.00 & 331348436.00 & 1268323.96 \\
+		\texttt{inst\_500\_40\_00007} & 21.765949 & 164770693.00 & 163821323.00 & 165299551.00  & 672761.60\\
+		\texttt{inst\_500\_40\_00016} & 21.713235 & 432797031.67 & 431431993.00 & 434524182.00  & 1288086.91 \\
+		\texttt{inst\_500\_40\_00004} & 18.120888 & 93151443.33  & 92486709.00  & 94022108.00  & 643515.35 \\
+		\midrule
+		\textbf{Summary Statistics} & \textbf{0.395245} & \textbf{265036374.55} & - & -  \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:medium_large_performance_metrics_gvns}
+\end{table}
+
+
+\subsection*{Large}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+		\toprule
+		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+		\midrule
+		\texttt{inst\_1000\_60\_00005} & 1.940377 & 1067764674.70  & 1060835463.00  & 1075136067.00  & 3443214.33  \\
+		\texttt{inst\_1000\_60\_00002} & 5.258952 & 5339427349.17  & 5316206983.00  & 5358163297.00  & 9952612.22  \\
+		\texttt{inst\_1000\_60\_00004} & 2.576052 & 1618919043.03  & 1604354503.00  & 1629522719.00  & 5881501.28  \\
+		\texttt{inst\_1000\_60\_00001} & 9.653994 & 15145125818.07 & 15119309857.00 & 15174139010.00 & 15114903.03 \\
+		\texttt{inst\_1000\_60\_00003} & 3.577870 & 2710183271.13  & 2698638355.00  & 2723048821.00  & 6434495.93  \\
+		\texttt{inst\_1000\_60\_00007} & 1.234546 & 568833774.80   & 564743332.00   & 571513933.00   & 1777165.09  \\
+		\texttt{inst\_1000\_60\_00006} & 1.506673 & 771255574.13   & 765180918.00   & 777979955.00   & 3043546.59  \\
+		\texttt{inst\_1000\_60\_00008} & 1.053052 & 450177254.10   & 446090463.00   & 455253372.00   & 2137433.51  \\
+		\texttt{inst\_1000\_60\_00009} & 0.886946 & 357376938.03   & 354133103.00   & 359544918.00   & 1668191.08  \\
+		\texttt{inst\_1000\_60\_00010} & 0.773536 & 294319001.80   & 291894077.00   & 297714026.00   & 1198184.49  \\
+		\midrule
+		\textbf{Summary Statistics} & \textbf{} & \textbf{} & - & - & - \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:large_performance_metrics_gvns}
+\end{table}
 
 
 
