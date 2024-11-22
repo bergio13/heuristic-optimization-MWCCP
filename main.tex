@@ -543,11 +543,12 @@ The alpha parameter influences the randomness of the algorithm. It can have a va
 \subsection*{Performance}
 The tests were ran on a Macbook Pro 16" M2 Pro. All the test have been ran with the following parameters: 
 \begin{itemize}
-	\item \textbf{Max iterations:} 
+	\item \textbf{Max iterations:} 25 (10 for medium\_large and large)
 	\item \textbf{Neighborhood structures:} Swap, Reverse, Insert
 	\item \textbf{Step function:} First Improvement
-	\item \textbf{Alpha:} 
-	\item \textbf{Times ran:} 
+	\item \textbf{Alpha:} 0.5
+	\item \textbf{VND Max iterations:} 30 (50 for medium\_large and large)
+	\item \textbf{Times ran:} 5
 \end{itemize}
 
 \subsection*{Small}
@@ -737,7 +738,7 @@ The tests were ran on a Macbook Pro 16" M2 Pro.  The algorithm was limited to 15
 		\texttt{inst\_500\_40\_00016} & 21.713235 & 432797031.67 & 431431993.00 & 434524182.00  & 1288086.91 \\
 		\texttt{inst\_500\_40\_00004} & 18.120888 & 93151443.33  & 92486709.00  & 94022108.00  & 643515.35 \\
 		\midrule
-		\textbf{Summary Statistics} & \textbf{0.395245} & \textbf{265036374.55} & - & -  \\
+		\textbf{Summary Statistics} & \textbf{31.48} & \textbf{262055133.57} & - & -  \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:medium_large_performance_metrics_gvns}
@@ -751,18 +752,15 @@ The tests were ran on a Macbook Pro 16" M2 Pro.  The algorithm was limited to 15
 		\toprule
 		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
 		\midrule
-		\texttt{inst\_1000\_60\_00005} & 1.940377 & 1067764674.70  & 1060835463.00  & 1075136067.00  & 3443214.33  \\
-		\texttt{inst\_1000\_60\_00002} & 5.258952 & 5339427349.17  & 5316206983.00  & 5358163297.00  & 9952612.22  \\
-		\texttt{inst\_1000\_60\_00004} & 2.576052 & 1618919043.03  & 1604354503.00  & 1629522719.00  & 5881501.28  \\
-		\texttt{inst\_1000\_60\_00001} & 9.653994 & 15145125818.07 & 15119309857.00 & 15174139010.00 & 15114903.03 \\
-		\texttt{inst\_1000\_60\_00003} & 3.577870 & 2710183271.13  & 2698638355.00  & 2723048821.00  & 6434495.93  \\
-		\texttt{inst\_1000\_60\_00007} & 1.234546 & 568833774.80   & 564743332.00   & 571513933.00   & 1777165.09  \\
-		\texttt{inst\_1000\_60\_00006} & 1.506673 & 771255574.13   & 765180918.00   & 777979955.00   & 3043546.59  \\
-		\texttt{inst\_1000\_60\_00008} & 1.053052 & 450177254.10   & 446090463.00   & 455253372.00   & 2137433.51  \\
-		\texttt{inst\_1000\_60\_00009} & 0.886946 & 357376938.03   & 354133103.00   & 359544918.00   & 1668191.08  \\
-		\texttt{inst\_1000\_60\_00010} & 0.773536 & 294319001.80   & 291894077.00   & 297714026.00   & 1198184.49  \\
+		\texttt{inst\_1000\_60\_00010} & 11.19 & 291610026.67 & 291254886.0 & 292318846.0 & 501211.31 \\ 
+		\texttt{inst\_1000\_60\_00003} & 112.95 & 2693543349.33 & 2688223953.0 & 2696212360.0 & 3761388.9 \\ 
+		\texttt{inst\_1000\_60\_00004} & 21.15 & 1609193540.0 & 1601173704.0 & 1613706738.0 & 5685749.31 \\ \texttt{inst\_1000\_60\_00005} & 375.95 & 1059309581.0 & 1056115196.0 & 1062399111.0 & 2566468.76 \\ 
+		\texttt{inst\_1000\_60\_00002} & 670.11 & 5318438095.33 & 5302096229.0 & 5339520491.0 & 15641788.27 \\ 
+		\texttt{inst\_1000\_60\_00009} & 169.83 & 355532932.67 & 354863082.0 & 356634678.0 & 785085.07 \\ \texttt{inst\_1000\_60\_00007} & 10.65 & 566472707.0 & 565711074.0 & 567165205.0 & 595655.93 \\ 
+		\texttt{inst\_1000\_60\_00001} & 822.91 & 15130540648.67 & 15120425541.0 & 15137799361.0 & 7374806.26 \\ \texttt{inst\_1000\_60\_00006} & 235.2 & 766403809.33 & 764744946.0 & 767269304.0 & 1173363.03 \\ 
+		\texttt{inst\_1000\_60\_00008} & 193.84 & 448173111.67 & 445884204.0 & 451014381.0 & 2130493.93 \\
 		\midrule
-		\textbf{Summary Statistics} & \textbf{} & \textbf{} & - & - & - \\
+		\textbf{Summary Statistics} & \textbf{262.38} & \textbf{2823921780.167} & - & - & - \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:large_performance_metrics_gvns}
