@@ -5,6 +5,7 @@
 \usepackage{float}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{amsmath}
 
 \title{Programming Problem 1}
 \author{}
@@ -14,19 +15,54 @@
 
 \maketitle
 
-Objective function to be minimized:
-\( f (\pi) = \sum_{(u, v) \in E} \sum_{(u', v') \in E | u< u'} (w_{u,v}+w_{u', v'}) \cdot \delta_{\pi}((u, v), (u', v') )\)
-where 
-\(\delta_{\pi}((u, v), (u', v') ) = 1 \; if pos_{\pi}(v) > pos_{\pi}(v') \)
+\section*{Problem Description}
+We are dealing with the Minimum Weighted Crossings with Constraints Problem (MWCCP), which is a generalization of the Minimum Crossings Problem.
+The objective function to be minimized:
+\[
+f(\pi) = \sum_{(u, v) \in E} \sum_{\substack{(u', v') \in E \\ u < u'}} 
+(w_{u,v} + w_{u', v'}) \cdot \delta_{\pi}((u, v), (u', v'))
+\]
+where
+\[
+\delta_{\pi}((u, v), (u', v')) = 
+\begin{cases} 
+1 & \text{if } \text{pos}_{\pi}(v) > \text{pos}_{\pi}(v'), \\ 
+0 & \text{otherwise.} 
+\end{cases}
+\]
 
-\section*{Deterministic Construction}
+\section*{Question 1}
+Application: Railway Scheduling and Track Layout
+\begin{itemize}
+    \item Nodes in \(U\) could represent fixed train stations along a route, where trains must stop in a specific order
+    \item Nodes in \(V\) could represent trains/train routes to be scheduled within the network
+    \item Weighted edges would indicate the relationship between trains/train routes and tracks, with higher weights representing either higher traffic, longer distance, lower importance in terms of scheduling (in case of for example local vs. high speed train)
+    \item Constraints in C would enforce rules like the fact that certain trains need to arrive before others or that trains using the same tracks do not overlap.
+\end{itemize}
+
+The objective then would be to arrange the schedules in V to minimize the crossings of tracks while satisfying all constraints in C. This would lead to improved security and efficiency as minimizing track crossings would reduce the likelihood of collisions or delays due to track conflicts.
+
+
+\section*{Q2: Deterministic Construction Heuristic}
 
 \subsection*{Algorithm Description}
 
-This implementation addresses the \textbf{Minimum Weighted Crossing with Constraints Problem (MWCCP)} using a \textbf{deterministic greedy construction algorithm} to generate an ordering of \( V \) that adheres to the constraints. Below, we describe the key components, problem-specific adaptations, and parameters of the algorithm.
+A meaningful deterministic construction heuristic could be one based on a greedy approach:
+\begin{itemize}
+    \item Initialize an empty ordered permutation list $\pi$ for nodes in $V$
+    \item Compute for each node in $V$ the number of constraints that require other nodes to come before it
+    \item Create a list of candidates with nodes in $V$ that have no predecessors
+    \item For every node in the candidates and until $V$ is empty
+    \begin{itemize}
+        \item calculate the total weight of edges connecting it to U
+        \item select the node with the lowest total edge weight to nodes in $U$ and append it to the final permutation list $\pi$
+        \item  update the in-degree of nodes that had this as a constraint reducing it by $1$
+        \item if the in-degree of any node in $V$ reaches zero add it to the candidates
+        
+    \end{itemize}
+\end{itemize}
 
-
-\subsection*{Algorithm Components and Adaptations}
+\subsection*{Components}
 
 \paragraph{Input Structure:}
 \begin{itemize}
@@ -53,80 +89,140 @@ After constructing \( \pi \), the algorithm verifies:
     \item All precedence constraints are respected
 \end{itemize}
 
-\subsection*{Key Adaptations}
+\subsection*{Adaptations}
 \begin{itemize}
     \item \textbf{Problem-Specific Heuristic:} The algorithm prioritizes nodes with lower edge weights to reduce crossings early in the construction.
     \item \textbf{Constraint Management:} Using in-degrees to dynamically track feasible candidates ensures constraints are respected throughout the process.
     \item \textbf{Solution Verification:} A final verification step guarantees correctness.
 \end{itemize}
 
-\subsection*{Performance}
+\subsection*{Results}
 The quality of the solution given by our Deterministic Construction Heuristic is competitive as it is visible from the competition results, while being very fast. Below we report some performance metrics for the different test instance sizes.
 
-\paragraph{Small:}
-Average construction time: 0.000557 seconds
-\begin{itemize}
-\item inst\_50\_4\_00002: Time= 0.000799 s, Cost= 31619.0   
-\item inst\_50\_4\_00004: Time= 0.000259 s, Cost= 8582.0    
-\item inst\_50\_4\_00007: Time= 0.000155 s, Cost= 3463.0    
-\item inst\_50\_4\_00005: Time= 0.000122 s, Cost= 6034.0    
-\item inst\_50\_4\_00009: Time= 0.000128 s, Cost= 2633.0    
-\item inst\_50\_4\_00003: Time= 0.000148 s, Cost= 15511.0   
-\item inst\_50\_4\_00006: Time= 0.000166 s, Cost= 4883.0    
-\item inst\_50\_4\_00010: Time= 0.000119 s, Cost= 1658.0    
-\item inst\_50\_4\_00001: Time= 0.000279 s, Cost= 84883.0   
-\item inst\_50\_4\_00008: Time= 0.000426 s, Cost= 3005.0 
-\end{itemize}
+\subsubsection*{Small}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ \hline
+inst\_50\_4\_00002 & 0.000799 & 31619.0 \\ \hline
+inst\_50\_4\_00004 & 0.000259 & 8582.0  \\ \hline
+inst\_50\_4\_00007 & 0.000155 & 3463.0  \\ \hline
+inst\_50\_4\_00005 & 0.000122 & 6034.0  \\ \hline
+inst\_50\_4\_00009 & 0.000128 & 2633.0  \\ \hline
+inst\_50\_4\_00003 & 0.000148 & 15511.0 \\ \hline
+inst\_50\_4\_00006 & 0.000166 & 4883.0  \\ \hline
+inst\_50\_4\_00010 & 0.000119 & 1658.0  \\ \hline
+inst\_50\_4\_00001 & 0.000279 & 84883.0 \\ \hline
+inst\_50\_4\_00008 & 0.000426 & 3005.0  \\ \hline
+\end{tabular}
+\caption{Results for Small instances (Avg. time = 0.000557 s)}
+\end{table}
 
-\paragraph{Medium}
-
-\begin{itemize}
-\item inst\_200\_20\_00008: Time=0.000852 s, Cost=709644.0  
-\item inst\_200\_20\_00001: Time=0.001486 s, Cost=23033165.0
-\item inst\_200\_20\_00009: Time=0.000805 s, Cost=547596.0  
-\item inst\_200\_20\_00010: Time=0.000881 s, Cost=461537.0  
-\item inst\_200\_20\_00006: Time=0.000879 s, Cost=1217519.0 
-\item inst\_200\_20\_00004: Time=0.000938 s, Cost=2551528.0 
-\item inst\_200\_20\_00005: Time=0.001722 s, Cost=1627621.0 
-\item inst\_200\_20\_00003: Time=0.001898 s, Cost=4361007.0 
-\item inst\_200\_20\_00007: Time=0.001528 s, Cost=908103.0  
-\item inst\_200\_20\_00002: Time=0.002308 s, Cost=8390614.0 
-\end{itemize}
-
-\paragraph{Medium-Large}
-\begin{itemize}
-\item inst\_500\_40\_00001: Time=0.012615 s,  Cost=40802322.0
-\item inst\_500\_40\_00010: Time=0.021615 s,  Cost=247294126.0
-\item inst\_500\_40\_00019: Time=0.015958 s,  Cost=532473137.0
-\item inst\_500\_40\_00013: Time=0.012978 s,  Cost=334007118.0
-\item inst\_500\_40\_00007: Time=0.016719 s,  Cost=168022855.0
-\item inst\_500\_40\_00016: Time=0.015179 s,  Cost=437097158.0
-\item inst\_500\_40\_00004: Time=0.009197 s,  Cost=94454966.0
-\end{itemize}
-
-
-\paragraph{Large}
-\begin{itemize}
-\item inst\_1000\_60\_00005: Time=0.032712 s,  Cost=1065285851.0
-\item inst\_1000\_60\_00002: Time=0.066785 s,  Cost=5340801153.0
-\item inst\_1000\_60\_00004: Time=0.039137 s,  Cost=1614552426.0
-\item inst\_1000\_60\_00001: Time=0.136459 s,  Cost=15151194763.0
-\item inst\_1000\_60\_00003: Time=0.045279 s,  Cost=2701197831.0
-\item inst\_1000\_60\_00007: Time=0.027055 s,  Cost=569249713.0
-\item inst\_1000\_60\_00006: Time=0.030169 s,  Cost=767270792.0
-\item inst\_1000\_60\_00008: Time=0.039558 s,  Cost=451262171.0
-\item inst\_1000\_60\_00009: Time=0.027395 s,  Cost=358976591.0
-\item inst\_1000\_60\_00010: Time=0.031849 s,  Cost=293146116.0
-\end{itemize}
-
-
-\section*{Randomized Construction}
-
-\subsection*{Small}
+\subsubsection*{Medium}
 
 \begin{table}[H]
 \centering
-\begin{tabular}{lrrrrr}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ \hline
+inst\_200\_20\_00008 & 0.000852 & 709644.0   \\ \hline
+inst\_200\_20\_00001 & 0.001486 & 23033165.0 \\ \hline
+inst\_200\_20\_00009 & 0.000805 & 547596.0   \\ \hline
+inst\_200\_20\_00010 & 0.000881 & 461537.0   \\ \hline
+inst\_200\_20\_00006 & 0.000879 & 1217519.0  \\ \hline
+inst\_200\_20\_00004 & 0.000938 & 2551528.0  \\ \hline
+inst\_200\_20\_00005 & 0.001722 & 1627621.0  \\ \hline
+inst\_200\_20\_00003 & 0.001898 & 4361007.0  \\ \hline
+inst\_200\_20\_00007 & 0.001528 & 908103.0   \\ \hline
+inst\_200\_20\_00002 & 0.002308 & 8390614.0  \\ \hline
+\end{tabular}
+\caption{Results for Medium instances}
+\end{table}
+
+\subsubsection*{Medium-Large}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ \hline
+inst\_500\_40\_00001 & 0.012615 & 40802322.0  \\ \hline
+inst\_500\_40\_00010 & 0.021615 & 247294126.0 \\ \hline
+inst\_500\_40\_00019 & 0.015958 & 532473137.0 \\ \hline
+inst\_500\_40\_00013 & 0.012978 & 334007118.0 \\ \hline
+inst\_500\_40\_00007 & 0.016719 & 168022855.0 \\ \hline
+inst\_500\_40\_00016 & 0.015179 & 437097158.0 \\ \hline
+inst\_500\_40\_00004 & 0.009197 & 94454966.0  \\ \hline
+\end{tabular}
+\caption{Results for Medium-Large instances}
+\end{table}
+
+
+\subsubsection*{Large}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ \hline
+inst\_1000\_60\_00005 & 0.032712 & 1065285851.0  \\ \hline
+inst\_1000\_60\_00002 & 0.066785 & 5340801153.0  \\ \hline
+inst\_1000\_60\_00004 & 0.039137 & 1614552426.0  \\ \hline
+inst\_1000\_60\_00001 & 0.136459 & 15151194763.0 \\ \hline
+inst\_1000\_60\_00003 & 0.045279 & 2701197831.0  \\ \hline
+inst\_1000\_60\_00007 & 0.027055 & 569249713.0   \\ \hline
+inst\_1000\_60\_00006 & 0.030169 & 767270792.0   \\ \hline
+inst\_1000\_60\_00008 & 0.039558 & 451262171.0   \\ \hline
+inst\_1000\_60\_00009 & 0.027395 & 358976591.0   \\ \hline
+inst\_1000\_60\_00010 & 0.031849 & 293146116.0   \\ \hline
+\end{tabular}
+\caption{Results for Large instances}
+\end{table}
+
+
+
+\section*{Q3: Randomized Construction Heuristic}
+The randomized heuristic could roughly follow the same process as the deterministic one, but then, when choosing the node in $V$ to add to the final permutation list $\pi$, instead of always choosing the one that has a minimum weighted sum of edges to $U$, pick one randomly, with a probability inversely proportional to this sum.
+In particular we will use a Boltzmann Distribution to balance randomness and greedy choice. 
+
+\paragraph{Probability Calculation:}
+Compute the probabilities for selecting a node from the current candidates using a Boltzmann distribution. More in details:
+\begin{itemize}
+    \item Calculate scores for all candidate nodes
+    \item Normalize the scores to avoid overflow
+    \item Compute the probabilities using: 
+    \(p_i = \frac{\exp{(-\frac{s_i}{\alpha})}}{\sum_j \exp{(-\frac{s_j}{\alpha})}}\), where \(s_i\) is the normalized score for node \( i\).
+\end{itemize}
+The parameter $\alpha$ controls randomness: a smaller $\alpha$ increases randomness, while a larger value value favors greediness.
+In this way, nodes with higher cost/score have lower probability to be selected.
+
+\paragraph{Single Solution Construction:}
+The steps are very similar to the deterministic construction heuristic.
+\begin{itemize}
+    \item Start with all nodes having in-degree zero.
+    \item Randomly select a node from candidates using the probabilities.
+    \item Add the node to the ordering, remove it from the candidates, and update in-degrees of connected nodes.
+    \item Repeat until all nodes are ordered.
+\end{itemize}
+
+
+\paragraph{Multiple Iterations:}
+We also add the possibility to run the single-solution construction multiple times to improve the results and get lower variance. In particular the steps are:
+\begin{itemize}
+    \item Repeat the construction process $num_iterations$ times.
+    \item Evaluate the cost of each solution.
+    \item Keep the best solution found.
+\end{itemize}
+
+
+\subsection*{Results}
+The results are computed using a single iteration and a parameter $\alpha = 0.6$.
+
+\subsubsection*{Small}
+
+\begin{table}[H]
+\centering
+\hspace*{-1.5cm}
+\begin{tabular}{llllll}
 \toprule
 \textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
 \midrule
@@ -147,10 +243,11 @@ Average construction time: 0.000557 seconds
 \label{tab:performance_metrics}
 \end{table}
 
-\subsection*{Medium}
+\subsubsection*{Medium}
 \begin{table}[H]
 \centering
-\begin{tabular}{lrrrrr}
+\hspace*{-1.5cm}
+\begin{tabular}{llllll}
 \toprule
 \textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
 \midrule
@@ -171,10 +268,11 @@ Average construction time: 0.000557 seconds
 \label{tab:medium_performance_metrics}
 \end{table}
 
-\subsection*{Medium-Large}
+\subsubsection*{Medium-Large}
 \begin{table}[H]
 \centering
-\begin{tabular}{lrrrrr}
+\hspace*{-2cm}
+\begin{tabular}{llllll}
 \toprule
 \textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
 \midrule
@@ -192,10 +290,12 @@ Average construction time: 0.000557 seconds
 \label{tab:medium_large_performance_metrics}
 \end{table}
 
-\subsection*{Large}
+\subsubsection*{Large}
+
 \begin{table}[H]
 \centering
-\begin{tabular}{lrrrrr}
+\hspace*{-2cm}
+\begin{tabular}{llllll}
 \toprule
 \textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
 \midrule
@@ -216,7 +316,94 @@ Average construction time: 0.000557 seconds
 \label{tab:large_performance_metrics}
 \end{table}
 
-\section*{Variable Neighborhood Descent (VND)}
+\section*{Q4: Local Search}
+We developed a framework for basic local search able to deal with different neighborhood structures and different step functions.
+
+\subsection*{Local Search Procedure}
+
+The local search algorithm follows these steps:
+
+\begin{enumerate}
+    \item \textbf{Initialization:} 
+    \begin{itemize}
+        \item Start with an initial solution \( \text{current\_solution} \).
+        \item Set key parameters:
+        \begin{itemize}
+            \item Maximum number of iterations (\( \text{max\_iter} \)).
+            \item Maximum plateau (\( \text{max\_plateau} \)), i.e., consecutive iterations without improvement before termination.
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Neighborhood Generation:}
+    \begin{itemize}
+        \item Generate a set of neighboring solutions using a selected neighborhood structure:
+        \begin{itemize}
+            \item Swap
+            \item Insert
+            \item Reverse
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Solution Selection:}
+    \begin{itemize}
+        \item Select the next solution based on the chosen step function. Three different step functions are allowed:
+        \begin{itemize}
+            \item \textbf{Best Improvement:} Explore all neighbors and select the one with the lowest cost.
+            \item \textbf{First Improvement:} Select the first neighbor that improves the current cost.
+            \item \textbf{Random:} Select a random neighbor from the set of valid neighbors.
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Iteration:}
+    \begin{itemize}
+        \item Evaluate the cost of the selected solution using the cost function \( f(\text{s}) \).
+        \item Update the best solution and plateau counter:
+        \begin{itemize}
+            \item If the selected solution improves the best cost, update \( \text{best\_solution} \) and reset the plateau counter.
+            \item Otherwise, increment the plateau counter.
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Termination:}
+    \begin{itemize}
+        \item Stop the search when either:
+        \begin{itemize}
+            \item The maximum number of iterations (\( \text{max\_iter} \)) is reached.
+            \item The plateau counter exceeds \( \text{max\_plateau} \).
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Statistics:}
+    \begin{itemize}
+        \item Record statistics such as improvement history, runtime, and local optima encountered.
+    \end{itemize}
+\end{enumerate}
+
+
+\section*{Q5: Neighborhood Structures}
+\subsubsection*{1. Swap Neighborhood}
+\textbf{Description:} Neighbors are generated by swapping adjacent nodes in the solution.
+
+\noindent \textbf{Procedure:}  For all adjacent node pairs, swap their positions if the swap respects constraints and add the resulting solution to the set of neighbors if it is valid.
+
+\noindent \textbf{Purpose:} This structure performs small modifications to find similar solutions to the current one that have better cost.
+
+\subsubsection*{2. Insert Neighborhood}
+\textbf{Description:} Neighbors are generated by removing a node from its position and inserting it at a different position.
+
+\noindent \textbf{Process:} For all pairs of positions \( (i, j) \), remove the node at position \( i \) and insert it at \( j \) and add the resulting solution to the set of neighbors if it is valid.
+
+\noindent \textbf{Purpose:} Allows larger modifications of the solution, exploring solutions with higher order changes.
+
+\subsubsection*{3. Reverse Neighborhood}
+\textbf{Description:} Neighbors are generated by reversing the order of a subsequence of nodes.
+
+\noindent \textbf{Process:} For all subsequences \( (i, j) \) where \( j > i + 1 \), reverse the order of nodes between \( i \) and \( j \) and add the resulting solution to the set of neighbors if it is valid.
+
+\noindent \textbf{Purpose:} Even higher order changes in the solution, in order to escape local optima.
+
+
+\section*{Q6: Variable Neighborhood Descent (VND)}
 \subsection*{Algorithm and Adaptations}
 The algorithm consists of a simple implementation of VND with support for multiple neighborhoods and step functions. The parameters that can be changed for the algorithm are: \textbf{maximum number of iterations}, \textbf{step function}, \textbf{objective function} (function for calculating the score), \textbf{neighborhood order}. The algorithm also tracks statistics.
 
@@ -253,7 +440,9 @@ The order of the neighborhood functions also has a big influence on speed, and a
 
 \subsection*{Performance}
 
-\section*{General Variable Neighborhood Search(GVNS)}
+\section*{Q7: GRASP}
+
+\section*{Q8: General Variable Neighborhood Search(GVNS)}
 \subsection*{Algorithm and Adaptations}
 The GVNS combines the VND with random shaking to try to give the VND a chance to escape a local optima. In the implementation, it supports different implementations of VND and it has these parameters:  \textbf{shaking neighborhoods},  \textbf{local search neighborhoods},  \textbf{objective function},  \textbf{maximum number of iterations},  \textbf{vnd step function},  \textbf{vnd max iterations}. The only completely new parameter which was introduced was \textbf{shaking neighborhoods} and it is explained in the next paragraph.
 
