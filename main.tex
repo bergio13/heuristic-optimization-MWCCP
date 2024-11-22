@@ -3,6 +3,8 @@
 \usepackage{booktabs} % For better table rules
 \usepackage{longtable} % For tables spanning multiple pages if necessary
 \usepackage{float}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 
 \title{Programming Problem 1}
 \author{}
@@ -213,5 +215,58 @@ Average construction time: 0.000557 seconds
 \end{tabular}
 \label{tab:large_performance_metrics}
 \end{table}
+
+\section*{Variable Neighborhood Descent (VND)}
+\subsection*{Algorithm and Adaptations}
+The algorithm consists of a simple implementation of VND with support for multiple neighborhoods and step functions. The parameters that can be changed for the algorithm are: \textbf{maximum number of iterations}, \textbf{step function}, \textbf{objective function} (function for calculating the score), \textbf{neighborhood order}. The algorithm also tracks statistics.
+
+\paragraph{Neighborhoods:}
+VDN as well as other algorithms support 3 neighborhoods. All neighborhoods are implemented as generator functions which can speed up the computation if not all elements of the neighborhood are needed. These are the supported neighborhoods:
+\begin{itemize}
+	\item \textbf{Swap neighborhood:} The neighborhood of all solutions which can be obtained by swapping the positions of 2 elements.
+	\item \textbf{Insert neighborhood:} The neighborhood of all solutions which can be obtained by removing an element and inserting it in another place in the solution.
+	\item \textbf{Reverse neighborhood:} The neighborhood of all solutions which can be obtained by reversing an interval of the solution.
+\end{itemize}
+
+\paragraph{Step functions:}
+VDN as well as other algorithms support the following step functions:
+\begin{itemize}
+	\item \textbf{Best Improvement:} The next solution is chosen as the solution with the best cost in the neighborhood.
+	\item \textbf{First Improvement:} The first encountered solution with a better cost then the current one is chosen.
+	\item \textbf{Random:} A random solution from the neighborhood is chosen.
+\end{itemize}
+\subsection*{Performance Factors}
+The performance of the algorithm is affected by the chosen parameters. The algorithm was tested with multiple combinations of parameters on the tuning instances and the following trends were seen:
+
+\paragraph{Maximum iterations:} 
+The maximum number of iteration is one of the most directly correlated paramaters. The maximum number of iteration has a linear correlation with the time taken, as more iterations there are, the slower will the execution be. For each instance there is also a limit which is also based on other parameters which stops the increase of the time taken.
+
+\paragraph{Step function:}
+The step function has a big influence on the solution. The \textit{Random} function is really fast, it doesn't give good solutions so it wasn'y used in the tests. While the \textit{Best Improvement} function gives the best result, the time taken to generate the whole neighborhood on larger instances is too large and is beaten in speed and solution cost by the \textit{First Improvement} with a 10 times larger maximum iterations, so the latter was used in most of the tests.
+
+\paragraph{Objective function:}
+There are multiple implementations of the cost functions and the 2 most notable are the \textit{cost\_function\_bit} which uses a Fenwick tree to efficiently calculate the cost ($O(E \log E)$, where $E$ is the number of edges) and the cost function which uses delta evaluation using pre calculated prefix sums of weights for the nodes and using only the nodes that have changed ($O(E*diff)$, where $diff$ is the number of changed node). In most cases the second function was used as it performs better.
+
+\paragraph{Neighborhood order:}
+The order of the neighborhood functions also has a big influence on speed, and a lesser influence on cost. The \textit{Swap} neighborhood is the fastes but performs the worst, \textit{Reverse} neigbhborhood performs the second best in both aspects and the \textit{Insert} neigbhborhood is the slowest and give an almost negligeble cost improvement over the \textit{Reverse} neigbhborhood. For larger instances, the first neighborhood in the order must be the \textit{Swap} neighborhood as otherwise it would take too much time.
+
+
+\subsection*{Performance}
+
+\section*{General Variable Neighborhood Search(GVNS)}
+\subsection*{Algorithm and Adaptations}
+The GVNS combines the VND with random shaking to try to give the VND a chance to escape a local optima. In the implementation, it supports different implementations of VND and it has these parameters:  \textbf{shaking neighborhoods},  \textbf{local search neighborhoods},  \textbf{objective function},  \textbf{maximum number of iterations},  \textbf{vnd step function},  \textbf{vnd max iterations}. The only completely new parameter which was introduced was \textbf{shaking neighborhoods} and it is explained in the next paragraph.
+
+\paragraph{Shaking neighborhoods:}
+Similar to neighborhoods, shaking neighborhoods are possible solutions which can be achieved using specific rules from the current solution. The shaking neighborhoods are special as they always provide only one random solution from the counterpart normal neighborhood. These were the implemented ones:
+\begin{itemize}
+	\item \textbf{Swap neighborhood (n):} It returns a solution which can be found in the swap neighborhood. It also supports the creation of a n-swap neighborhood, which allows all solutions which can be achieved using n swaps from the current solution.
+	\item \textbf{Insert neighborhood:} It returns a solution from the insert neighborhood.
+	\item \textbf{Reverse neighborhood:} It returns a solution from the reverse neighborhood.
+\end{itemize}
+
+
+
+
 
 \end{document}
