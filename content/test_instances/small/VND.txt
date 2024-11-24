@@ -1,0 +1,100 @@
+Instance: content/test_instances/small/inst_50_4_00006
+  Min cost: 2959.0
+  Max cost: 2959.0
+  Mean cost: 2959.0
+  Median cost: 2959.0
+  Min time: 0.29021430015563965
+  Max time: 0.32749485969543457
+  Mean time: 0.29919259548187255
+  Median time: 0.29558634757995605
+  Solution: [46, 27, 30, 47, 37, 29, 28, 36, 50, 48, 44, 45, 43, 38, 26, 41, 49, 35, 32, 39, 34, 40, 33, 31, 42]
+Instance: content/test_instances/small/inst_50_4_00001
+  Min cost: 74406.0
+  Max cost: 74406.0
+  Mean cost: 74406.0
+  Median cost: 74406.0
+  Min time: 1.0221197605133057
+  Max time: 1.258995771408081
+  Mean time: 1.0881453037261963
+  Median time: 1.060772180557251
+  Solution: [30, 44, 28, 26, 32, 41, 38, 48, 40, 31, 42, 37, 49, 27, 36, 29, 50, 39, 46, 45, 43, 47, 34, 35, 33]
+Instance: content/test_instances/small/inst_50_4_00008
+  Min cost: 1405.0
+  Max cost: 1405.0
+  Mean cost: 1405.0
+  Median cost: 1405.0
+  Min time: 0.15708708763122559
+  Max time: 0.17200994491577148
+  Mean time: 0.16499385833740235
+  Median time: 0.16505444049835205
+  Solution: [32, 41, 28, 43, 35, 46, 38, 40, 30, 31, 49, 26, 27, 34, 36, 44, 47, 29, 48, 42, 50, 33, 39, 37, 45]
+Instance: content/test_instances/small/inst_50_4_00009
+  Min cost: 1303.0
+  Max cost: 1303.0
+  Mean cost: 1303.0
+  Median cost: 1303.0
+  Min time: 0.9152779579162598
+  Max time: 0.9647407531738281
+  Mean time: 0.9380112171173096
+  Median time: 0.9303910732269287
+  Solution: [27, 36, 44, 29, 40, 32, 31, 28, 45, 33, 46, 26, 35, 39, 30, 34, 41, 38, 42, 48, 50, 43, 49, 47, 37]
+Instance: content/test_instances/small/inst_50_4_00007
+  Min cost: 2054.0
+  Max cost: 2054.0
+  Mean cost: 2054.0
+  Median cost: 2054.0
+  Min time: 0.28432703018188477
+  Max time: 0.2946970462799072
+  Mean time: 0.2896383762359619
+  Median time: 0.2900298833847046
+  Solution: [45, 29, 35, 33, 36, 42, 44, 40, 34, 41, 43, 28, 48, 38, 50, 26, 30, 27, 49, 39, 46, 47, 32, 37, 31]
+Instance: content/test_instances/small/inst_50_4_00010
+  Min cost: 857.0
+  Max cost: 857.0
+  Mean cost: 857.0
+  Median cost: 857.0
+  Min time: 0.25128865242004395
+  Max time: 0.2632160186767578
+  Mean time: 0.25751020908355715
+  Median time: 0.2575864791870117
+  Solution: [28, 44, 42, 31, 45, 47, 48, 33, 30, 32, 50, 29, 34, 38, 43, 26, 40, 46, 49, 39, 27, 41, 37, 35, 36]
+Instance: content/test_instances/small/inst_50_4_00002
+  Min cost: 23982.0
+  Max cost: 23982.0
+  Mean cost: 23982.0
+  Median cost: 23982.0
+  Min time: 0.31708383560180664
+  Max time: 0.3312249183654785
+  Mean time: 0.3237128973007202
+  Median time: 0.3232325315475464
+  Solution: [31, 50, 28, 47, 32, 36, 48, 26, 43, 34, 27, 40, 30, 35, 37, 42, 38, 29, 46, 45, 33, 39, 44, 41, 49]
+Instance: content/test_instances/small/inst_50_4_00005
+  Min cost: 3580.0
+  Max cost: 3580.0
+  Mean cost: 3580.0
+  Median cost: 3580.0
+  Min time: 0.35831713676452637
+  Max time: 0.3642737865447998
+  Mean time: 0.36163904666900637
+  Median time: 0.36128318309783936
+  Solution: [50, 46, 27, 39, 29, 34, 38, 28, 43, 45, 31, 26, 41, 32, 48, 30, 42, 36, 40, 33, 47, 35, 49, 37, 44]
+Instance: content/test_instances/small/inst_50_4_00004
+  Min cost: 6534.0
+  Max cost: 6534.0
+  Mean cost: 6534.0
+  Median cost: 6534.0
+  Min time: 0.38400697708129883
+  Max time: 0.3918111324310303
+  Mean time: 0.3876927852630615
+  Median time: 0.38723695278167725
+  Solution: [26, 38, 30, 41, 29, 43, 33, 48, 37, 27, 28, 31, 35, 40, 44, 46, 32, 49, 34, 47, 45, 39, 42, 50, 36]
+Instance: content/test_instances/small/inst_50_4_00003
+  Min cost: 12278.0
+  Max cost: 12278.0
+  Mean cost: 12278.0
+  Median cost: 12278.0
+  Min time: 0.44327783584594727
+  Max time: 0.4496281147003174
+  Mean time: 0.44593307971954343
+  Median time: 0.44539499282836914
+  Solution: [42, 28, 32, 49, 46, 40, 26, 27, 31, 33, 36, 37, 47, 43, 45, 30, 50, 39, 29, 35, 44, 34, 38, 41, 48]
