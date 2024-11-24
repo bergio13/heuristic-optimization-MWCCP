@@ -7,6 +7,8 @@
 \usepackage{algorithmic}
 \usepackage{amsmath}
 
+\graphicspath{{./images/}}
+
 \title{Programming Problem 1}
 \author{}
 \date{November 2024}
@@ -1236,16 +1238,43 @@ VDN as well as other algorithms support the following step functions:
 The performance of the algorithm is affected by the chosen parameters. The algorithm was tested with multiple combinations of parameters on the tuning instances and the following trends were seen:
 
 \paragraph{Maximum iterations:} 
-The maximum number of iteration is one of the most directly correlated paramaters. The maximum number of iteration has a linear correlation with the time taken, as more iterations there are, the slower will the execution be. For each instance there is also a limit which is also based on other parameters which stops the increase of the time taken.
+The maximum number of iteration is one of the most directly correlated paramaters. The maximum number of iteration has a linear correlation with the time taken, as more iterations there are, the slower will the execution be, but the cost difference gets smaller the more iterations there are.
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{cost_numit_vnd_med.png}
+	\caption{Cost relative to number of iterations on medium tuning instances}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{time_numit_vnd_med.png}
+	\caption{Time taken relative to number of iterations on medium tuning instances}
+\end{figure}
 
 \paragraph{Step function:}
-The step function has a big influence on the solution. The \textit{Random} function is really fast, it doesn't give good solutions so it wasn'y used in the tests. While the \textit{Best Improvement} function gives the best result, the time taken to generate the whole neighborhood on larger instances is too large and is beaten in speed and solution cost by the \textit{First Improvement} with a 10 times larger maximum iterations, so the latter was used in most of the tests.
+The step function has a big influence on the solution. The \textit{Random} function is really fast, it doesn't give good solutions so it wasn't used in the tests. While the \textit{Best Improvement} function gives the best result, the time taken to generate the whole neighborhood on larger instances is too large and is beaten in speed and solution cost by the \textit{First Improvement} with a 10 times larger maximum iterations, so the latter was used in most of the tests. The solution cost difference and the time difference can be seen on the following graphs:
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{cost_step_vnd_med.png}
+	\caption{Cost relative to step function on medium tuning instances}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{time_step_vnd_med.png}
+	\caption{Time taken relative to step function on medium tuning instances}
+\end{figure}
+
 
 \paragraph{Objective function:}
 There are multiple implementations of the cost functions and the 2 most notable are the \textit{cost\_function\_bit} which uses a Fenwick tree to efficiently calculate the cost ($O(E \log E)$, where $E$ is the number of edges) and the cost function which uses delta evaluation using pre calculated prefix sums of weights for the nodes and using only the nodes that have changed ($O(E*diff)$, where $diff$ is the number of changed node). In most cases the second function was used as it performs better in most cases, but the perfomance gains vary based on the machine the experiments were ran on.
 
 \paragraph{Neighborhood order:}
-The order of the neighborhood functions also has a big influence on speed, and a lesser influence on cost. The \textit{Swap} neighborhood is the fastes but performs the worst, \textit{Reverse} neigbhborhood performs the second best in both aspects and the \textit{Insert} neigbhborhood is the slowest and give an almost negligeble cost improvement over the \textit{Reverse} neigbhborhood. For larger instances, the first neighborhood in the order must be the \textit{Swap} neighborhood as otherwise it would take too much time.
+The order of the neighborhood functions also has a big influence on speed, and a lesser influence on cost. The \textit{Swap} neighborhood is the fastes but performs the worst, \textit{Reverse} neigbhborhood performs the second best in both aspects and the \textit{Insert} neigbhborhood is the slowest and give an almost negligeble cost improvement over the \textit{Reverse} neigbhborhood. For larger instances, the first neighborhood in the order must be the \textit{Swap} neighborhood as otherwise it would take too much time. This can be seen on the following graph:
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{time_norder_vnd_small.png}
+	\caption{Time taken relative to Neighborhood order on small tuning instances}
+\end{figure}
+
+
 
 
 \subsection*{Performance}
@@ -1353,16 +1382,25 @@ In this implementation GRASP uses greedy randomised construction and the VND imp
 \paragraph{Alpha:}
 The alpha parameter influences the randomness of the algorithm. It can have a value of 0 to 1 where 0 is purely greedy while 1 being completely random.
 
+\subsection*{Performance Factors:}
+The perfomance of the algorithm is influenced by the chosen parameters. Parameters like \textbf{max iterations}, \textbf{neighborhood structures}, \textbf{step function}, \textbf{vnd max iterations} have a very similar influence as in the VND algorithm (as most of the parameters directly influence the VND algorithm which is done as part of GRASP). The only new factor is alpha value.
+
+\paragraph*{Alpha:}
+The alpha value doesn't influence the results speed almost at all and influences the cost a little bit. From testing, alpha values around 0.5 are best.
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{cost_alpha_grasp_small.png}
+	\caption{Cost relative to alpha value on small tuning instances}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{time_alpha_grasp_med.png}
+	\caption{time taken relative to alpha value on medium tuning instances}
+\end{figure}
+
+
 \subsection*{Performance}
 The tests were ran on a Macbook Pro 16" M2 Pro. All the test have been ran with the following parameters: 
-\begin{itemize}
-	\item \textbf{Max iterations:} 25 (10 for medium\_large and large)
-	\item \textbf{Neighborhood structures:} Swap, Reverse, Insert
-	\item \textbf{Step function:} First Improvement
-	\item \textbf{Alpha:} 0.5
-	\item \textbf{VND Max iterations:} 30 (50 for medium\_large and large)
-	\item \textbf{Times ran:} 5
-\end{itemize}
 
 \subsection*{Small}
 \begin{table}[H]
@@ -1443,10 +1481,26 @@ GVNS combines the VND with random shaking to try to give the VND a chance to esc
 \paragraph{Shaking neighborhoods:}
 Similar to neighborhoods, shaking neighborhoods are possible solutions which can be achieved using specific rules from the current solution. The shaking neighborhoods are special as they always provide only one random solution from the counterpart normal neighborhood. These were the implemented ones:
 \begin{itemize}
-	\item \textbf{Swap neighborhood (n):} It returns a solution which can be found in the swap neighborhood. It also supports the creation of a n-swap neighborhood, which allows all solutions which can be achieved using n swaps from the current solution.
+	\item \textbf{Swap neighborhood (n):} It returns a solution which can be found in the swap neighborhood. It also supports the creation of a swap-n neighborhood, which allows all solutions which can be achieved using n swaps from the current solution.
 	\item \textbf{Insert neighborhood:} It returns a solution from the insert neighborhood.
 	\item \textbf{Reverse neighborhood:} It returns a solution from the reverse neighborhood.
 \end{itemize}
+
+\subsection*{Performance factors}
+The main new performance factor was the shaking neighborhoods. The number of iterations performed was generaly lower, as the iteration incremented only when a better solution was not found using the pass trough shaking neighborhoods and VND after each of the shakes. 
+
+\paragraph{Shaking neigborhoods:}
+The shaking neigborhoods definitely had an influence on the result, mainly with neghborhoods which aren't present in the VND. Those were the swap-n neigborhoods. The neigborhoods had a bigger influence on the resulting cost than on time, which shows that even less iterations with more neigborhoods can improve the results but also extend the time needed for the instance. The impact can be seen on these graphs:
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{cost_combination_gvns_med.png}
+	\caption{Cost relative to combinations on medium tuning instances}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{time_comb_gvns_med.png}
+	\caption{Time taken relative to combinations on medium tuning instances}
+\end{figure}
 
 \subsection*{Performance}
 The tests were ran on a Macbook Pro 16" M2 Pro.
