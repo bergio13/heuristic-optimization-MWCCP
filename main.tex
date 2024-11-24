@@ -10,7 +10,7 @@
 \graphicspath{{./images/}}
 
 \title{Programming Problem 1}
-\author{}
+\author{Group 19}
 \date{November 2024}
 
 \begin{document}
@@ -18,8 +18,13 @@
 \maketitle
 
 \section*{Problem Description}
-We are dealing with the Minimum Weighted Crossings with Constraints Problem (MWCCP), which is a generalization of the Minimum Crossings Problem.
-The objective function to be minimized:
+We consider the Minimum Weighted Crossings with Constraints Problem (MWCCP), which is a generalization of the Minimum Crossings Problem. In the MWCCP we are given an undirected weighted bipartite graph \( G = (U \cup V, E) \) with node sets \( U = \{1, \dots, m\} \) and \( V = \{m + 1, \dots, n\} \) corresponding to the two partitions, edge set \( E \), and a set of constraints \( C \). The node sets \( U \) and \( V \) are disjoint. The edges \( e = (u, v) \in E \subseteq U \times V \) have associated weights \( w_e = w_{u,v} \). Precedence constraints \( C \) are given in the form of a set of ordered node pairs \( C \subseteq V \times V \), where \( (v, v') \in C \) means that node \( v \) must appear before node \( v' \) in a feasible solution.
+
+The nodes of the graph \( G \) are to be arranged in two layers. The first layer contains all nodes of set \( U \) in fixed label order \( 1, \dots, m \), while the second layer contains the nodes of set \( V \) in an order to be determined. The goal of the MWCCP is to find an ordering of the nodes in \( V \) such that the weighted edge crossings are minimized while satisfying all constraints \( C \).
+
+A candidate solution is thus represented by a permutation \( \pi = (\pi_{m+1}, \dots, \pi_n) \) of the nodes in \( V \). It is only feasible if all of the constraints \( C \) are fulfilled, i.e., \( \text{pos}_\pi(v) < \text{pos}_\pi(v') \), \( \forall (v, v') \in C \), where \( \text{pos}(v) \) refers to the position of a node \( v \in V \) in the permutation \( \pi \).
+
+The objective function to be minimized is:
 \[
 f(\pi) = \sum_{(u, v) \in E} \sum_{\substack{(u', v') \in E \\ u < u'}} 
 (w_{u,v} + w_{u', v'}) \cdot \delta_{\pi}((u, v), (u', v'))
@@ -104,40 +109,44 @@ The quality of the solution given by our Deterministic Construction Heuristic is
 \subsubsection*{Small}
 \begin{table}[h!]
 \centering
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ \hline
-inst\_50\_4\_00002 & 0.000799 & 31619.0 \\ \hline
-inst\_50\_4\_00004 & 0.000259 & 8582.0  \\ \hline
-inst\_50\_4\_00007 & 0.000155 & 3463.0  \\ \hline
-inst\_50\_4\_00005 & 0.000122 & 6034.0  \\ \hline
-inst\_50\_4\_00009 & 0.000128 & 2633.0  \\ \hline
-inst\_50\_4\_00003 & 0.000148 & 15511.0 \\ \hline
-inst\_50\_4\_00006 & 0.000166 & 4883.0  \\ \hline
-inst\_50\_4\_00010 & 0.000119 & 1658.0  \\ \hline
-inst\_50\_4\_00001 & 0.000279 & 84883.0 \\ \hline
-inst\_50\_4\_00008 & 0.000426 & 3005.0  \\ \hline
+\begin{tabular}{lcc}
+\toprule
+\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ 
+\midrule
+inst\_50\_4\_00002 & 0.000799 & 31619.0 \\ 
+inst\_50\_4\_00004 & 0.000259 & 8582.0  \\ 
+inst\_50\_4\_00007 & 0.000155 & 3463.0  \\ 
+inst\_50\_4\_00005 & 0.000122 & 6034.0  \\ 
+inst\_50\_4\_00009 & 0.000128 & 2633.0  \\ 
+inst\_50\_4\_00003 & 0.000148 & 15511.0 \\ 
+inst\_50\_4\_00006 & 0.000166 & 4883.0  \\ 
+inst\_50\_4\_00010 & 0.000119 & 1658.0  \\ 
+inst\_50\_4\_00001 & 0.000279 & 84883.0 \\ 
+inst\_50\_4\_00008 & 0.000426 & 3005.0  \\ 
+\bottomrule
 \end{tabular}
-\caption{Results for Small instances (Avg. time = 0.000557 s)}
+\caption{Results for Small instances}
 \end{table}
 
 \subsubsection*{Medium}
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ \hline
-inst\_200\_20\_00008 & 0.000852 & 709644.0   \\ \hline
-inst\_200\_20\_00001 & 0.001486 & 23033165.0 \\ \hline
-inst\_200\_20\_00009 & 0.000805 & 547596.0   \\ \hline
-inst\_200\_20\_00010 & 0.000881 & 461537.0   \\ \hline
-inst\_200\_20\_00006 & 0.000879 & 1217519.0  \\ \hline
-inst\_200\_20\_00004 & 0.000938 & 2551528.0  \\ \hline
-inst\_200\_20\_00005 & 0.001722 & 1627621.0  \\ \hline
-inst\_200\_20\_00003 & 0.001898 & 4361007.0  \\ \hline
-inst\_200\_20\_00007 & 0.001528 & 908103.0   \\ \hline
-inst\_200\_20\_00002 & 0.002308 & 8390614.0  \\ \hline
+\begin{tabular}{lcc}
+\toprule
+\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ 
+\midrule
+inst\_200\_20\_00008 & 0.000852 & 709644.0   \\ 
+inst\_200\_20\_00001 & 0.001486 & 23033165.0 \\ 
+inst\_200\_20\_00009 & 0.000805 & 547596.0   \\ 
+inst\_200\_20\_00010 & 0.000881 & 461537.0   \\ 
+inst\_200\_20\_00006 & 0.000879 & 1217519.0  \\ 
+inst\_200\_20\_00004 & 0.000938 & 2551528.0  \\ 
+inst\_200\_20\_00005 & 0.001722 & 1627621.0  \\ 
+inst\_200\_20\_00003 & 0.001898 & 4361007.0  \\ 
+inst\_200\_20\_00007 & 0.001528 & 908103.0   \\ 
+inst\_200\_20\_00002 & 0.002308 & 8390614.0  \\ 
+\bottomrule
 \end{tabular}
 \caption{Results for Medium instances}
 \end{table}
@@ -145,16 +154,18 @@ inst\_200\_20\_00002 & 0.002308 & 8390614.0  \\ \hline
 \subsubsection*{Medium-Large}
 \begin{table}[h!]
 \centering
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ \hline
-inst\_500\_40\_00001 & 0.012615 & 40802322.0  \\ \hline
-inst\_500\_40\_00010 & 0.021615 & 247294126.0 \\ \hline
-inst\_500\_40\_00019 & 0.015958 & 532473137.0 \\ \hline
-inst\_500\_40\_00013 & 0.012978 & 334007118.0 \\ \hline
-inst\_500\_40\_00007 & 0.016719 & 168022855.0 \\ \hline
-inst\_500\_40\_00016 & 0.015179 & 437097158.0 \\ \hline
-inst\_500\_40\_00004 & 0.009197 & 94454966.0  \\ \hline
+\begin{tabular}{lcc}
+\toprule
+\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ 
+\midrule
+inst\_500\_40\_00001 & 0.012615 & 40802322.0  \\ 
+inst\_500\_40\_00010 & 0.021615 & 247294126.0 \\ 
+inst\_500\_40\_00019 & 0.015958 & 532473137.0 \\ 
+inst\_500\_40\_00013 & 0.012978 & 334007118.0 \\ 
+inst\_500\_40\_00007 & 0.016719 & 168022855.0 \\ 
+inst\_500\_40\_00016 & 0.015179 & 437097158.0 \\ 
+inst\_500\_40\_00004 & 0.009197 & 94454966.0  \\ 
+\bottomrule
 \end{tabular}
 \caption{Results for Medium-Large instances}
 \end{table}
@@ -163,22 +174,26 @@ inst\_500\_40\_00004 & 0.009197 & 94454966.0  \\ \hline
 \subsubsection*{Large}
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ \hline
-inst\_1000\_60\_00005 & 0.032712 & 1065285851.0  \\ \hline
-inst\_1000\_60\_00002 & 0.066785 & 5340801153.0  \\ \hline
-inst\_1000\_60\_00004 & 0.039137 & 1614552426.0  \\ \hline
-inst\_1000\_60\_00001 & 0.136459 & 15151194763.0 \\ \hline
-inst\_1000\_60\_00003 & 0.045279 & 2701197831.0  \\ \hline
-inst\_1000\_60\_00007 & 0.027055 & 569249713.0   \\ \hline
-inst\_1000\_60\_00006 & 0.030169 & 767270792.0   \\ \hline
-inst\_1000\_60\_00008 & 0.039558 & 451262171.0   \\ \hline
-inst\_1000\_60\_00009 & 0.027395 & 358976591.0   \\ \hline
-inst\_1000\_60\_00010 & 0.031849 & 293146116.0   \\ \hline
+\begin{tabular}{lcc}
+\toprule
+\textbf{Instance}         & \textbf{Time (s)} & \textbf{Cost} \\ 
+\midrule
+inst\_1000\_60\_00005 & 0.032712 & 1065285851.0  \\ 
+inst\_1000\_60\_00002 & 0.066785 & 5340801153.0  \\ 
+inst\_1000\_60\_00004 & 0.039137 & 1614552426.0  \\ 
+inst\_1000\_60\_00001 & 0.136459 & 15151194763.0 \\ 
+inst\_1000\_60\_00003 & 0.045279 & 2701197831.0  \\ 
+inst\_1000\_60\_00007 & 0.027055 & 569249713.0   \\ 
+inst\_1000\_60\_00006 & 0.030169 & 767270792.0   \\ 
+inst\_1000\_60\_00008 & 0.039558 & 451262171.0   \\ 
+inst\_1000\_60\_00009 & 0.027395 & 358976591.0   \\ 
+inst\_1000\_60\_00010 & 0.031849 & 293146116.0   \\ 
+\bottomrule
 \end{tabular}
 \caption{Results for Large instances}
 \end{table}
+
+
 
 
 
@@ -217,9 +232,10 @@ We also add the possibility to run the single-solution construction multiple tim
 
 
 \subsection*{Results}
-The results are computed using a single iteration and a parameter $\alpha = 0.6$.
+The results are computed using a single iteration and a parameter $\alpha = 0.6$. The randomized construction is repeated 30 times and the results are averaged.
 
 \subsubsection*{Small}
+
 
 \begin{table}[H]
 \centering
@@ -316,6 +332,35 @@ The results are computed using a single iteration and a parameter $\alpha = 0.6$
 \bottomrule
 \end{tabular}
 \label{tab:large_performance_metrics_randomized}
+\end{table}
+
+
+\subsubsection*{Experimenting with number of repetitions}
+We notice that if we increase the number of repetitions allowed the quality of the results starts increasing and becoming more stable.
+
+\begin{table}[H]
+    \centering
+    \hspace*{-1.5cm}
+    \begin{tabular}{lrrrrr}
+        \toprule
+        \textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
+        \midrule
+        inst\_50\_4\_00005 & 0.002378 & 5345.13 & 4772.00 & 6478.00 & 380.12 \\
+        inst\_50\_4\_00001 & 0.004306 & 85259.53 & 81247.00 & 90229.00 & 2232.76 \\
+        inst\_50\_4\_00008 & 0.001885 & 2808.87 & 2116.00 & 3227.00 & 299.90 \\
+        inst\_50\_4\_00003 & 0.003003 & 15488.67 & 13773.00 & 16915.00 & 717.22 \\
+        inst\_50\_4\_00002 & 0.003352 & 29928.00 & 27555.00 & 31895.00 & 1162.61 \\
+        inst\_50\_4\_00009 & 0.002575 & 2365.97 & 1946.00 & 2803.00 & 239.67 \\
+        inst\_50\_4\_00004 & 0.003143 & 9307.63 & 8242.00 & 10415.00 & 532.04 \\
+        inst\_50\_4\_00007 & 0.002303 & 3685.53 & 2877.00 & 4369.00 & 379.83 \\
+        inst\_50\_4\_00010 & 0.002392 & 1601.17 & 1293.00 & 1946.00 & 172.61 \\
+        inst\_50\_4\_00006 & 0.003085 & 4351.13 & 3771.00 & 5001.00 & 273.22 \\
+        \midrule
+        \multicolumn{6}{l}{\textbf{Summary Statistics:}} \\
+        \multicolumn{6}{l}{Average time across all instances: 0.002842 seconds} \\
+        \multicolumn{6}{l}{Average cost across all instances: 16014.16} \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
 \section*{Q4: Local Search}
@@ -1568,8 +1613,56 @@ The tests were ran on a Macbook Pro 16" M2 Pro.
 	\label{tab:large_performance_metrics_gvns}
 \end{table}
 
+\section*{Q9: Delta Evaluation}
+The current cost evaluation algorithm is efficient, operating with a complexity of $O(E \log V)$, where $E$ is the number of edges in the graph and $V$ the length of the permutation. This efficiency stems from using a Fenwick tree as data structure to compute the cost. However, there is room for improvement using delta evaluation, which focuses on incremental updates rather than recalculating the cost from scratch. In particular, delta-evaluation can be employed during the cost calculation step of the algorithm. Specifically, when transitioning from one solution to another during a Variable Neighborhood Descent, only the cost contributions from nodes that have changed positions are recalculated.
 
+\paragraph{Delta Evaluation for Cost Computation:} Steps Using Delta-Evaluation:
+\begin{itemize}
+    \item Identifying Changed Nodes: The algorithm tracks which nodes (denoted as diff) have changed their position in the solution
+    \item Updating Cost Incrementally: Instead of recalculating the total cost by considering all edges, the algorithm recalculates only the edges connected to the changed nodes.
+\end{itemize}
+This reduces the computational effort significantly, especially when the number of changed nodes (diff) is small.
 
+Thus delta-evaluation results in better performance because it avoids redundant calculations for parts of the solution that remain unchanged. Indeed, many combinatorial optimization problems have solutions in the search space that often differ by only a few changes because the neighborhood structures often make small changes (e.g., swapping two nodes). Without delta-evaluation, the cost computation would unnecessarily recompute all edges in the graph.
 
+\paragraph{Asymptotic Runtime}:
+As said without Delta-Evaluation the complexity is $O(E \log V)$. With Delta-Evaluation the complexity becomes $O(\text{diff}  \times V\times maxdeg(V))$, which can be approximated as $O(\text{diff} \times E)$. For small values of diff, this is substantially faster. In practice, diff is often a small fraction of $V$, making the delta-evaluation approach faster for most steps.
+
+\paragraph{Other Elements That Could Benefit from Delta-Evaluation}
+Another area that could benefit from a form of delta-evaluation could be feasibility checks. Since feasibility constraints depend on node positions, a form of delta-evaluation could focus only on the nodes that have changed. This would reduce the complexity of verifying constraints across the entire solution.
+
+\paragraph{Preprocessing}
+The algorithm precomputes the sum of the weight of all edges that connect to U nodes with value less than the current index in the array when the graph is created which allows it to reduce the computations later on. Also, both algorithms have a simple form of caching which allows them to reuse the cost of the solution if it has already been calculated. This is especially useful in the VND algorithm where the same solution is evaluated multiple times.
+
+\section*{Q10: Tuning}
+The results of the tunings are showed in the section corresponding to each algorithm
+
+\section*{Q11: Experiments comparison}
+The results of each experiment are shown in the section corresponding to each algorithm. For completeness, we add some plots summarizing some results.
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{cost_constr.png}
+	\caption{Cost of Deterministic vs Randomized Heuristic Solutions}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{time_constr.png}
+	\caption{Time of Deterministic vs Randomized Heuristic Solutions}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{local_search_swap.png}
+	\caption{Time and Cost of Local Search for Small Instances with Different Cost Functions and Swap Neighborhood}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{ls_n.png}
+	\caption{Time and Cost of Local Search for Small Instances with Different Neighborhoods and First Improvement}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{algo_comp.png}
+	\caption{Time and Cost Comparison of Different Optimization Strategies for Medium Instances}
+\end{figure}
 
 \end{document}
