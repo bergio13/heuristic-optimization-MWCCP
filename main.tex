@@ -1242,25 +1242,20 @@ The maximum number of iteration is one of the most directly correlated paramater
 The step function has a big influence on the solution. The \textit{Random} function is really fast, it doesn't give good solutions so it wasn'y used in the tests. While the \textit{Best Improvement} function gives the best result, the time taken to generate the whole neighborhood on larger instances is too large and is beaten in speed and solution cost by the \textit{First Improvement} with a 10 times larger maximum iterations, so the latter was used in most of the tests.
 
 \paragraph{Objective function:}
-There are multiple implementations of the cost functions and the 2 most notable are the \textit{cost\_function\_bit} which uses a Fenwick tree to efficiently calculate the cost ($O(E \log E)$, where $E$ is the number of edges) and the cost function which uses delta evaluation using pre calculated prefix sums of weights for the nodes and using only the nodes that have changed ($O(E*diff)$, where $diff$ is the number of changed node). In most cases the second function was used as it performs better.
+There are multiple implementations of the cost functions and the 2 most notable are the \textit{cost\_function\_bit} which uses a Fenwick tree to efficiently calculate the cost ($O(E \log E)$, where $E$ is the number of edges) and the cost function which uses delta evaluation using pre calculated prefix sums of weights for the nodes and using only the nodes that have changed ($O(E*diff)$, where $diff$ is the number of changed node). In most cases the second function was used as it performs better in most cases, but the perfomance gains vary based on the machine the experiments were ran on.
 
 \paragraph{Neighborhood order:}
 The order of the neighborhood functions also has a big influence on speed, and a lesser influence on cost. The \textit{Swap} neighborhood is the fastes but performs the worst, \textit{Reverse} neigbhborhood performs the second best in both aspects and the \textit{Insert} neigbhborhood is the slowest and give an almost negligeble cost improvement over the \textit{Reverse} neigbhborhood. For larger instances, the first neighborhood in the order must be the \textit{Swap} neighborhood as otherwise it would take too much time.
 
 
 \subsection*{Performance}
-The tests were ran on a Macbook Pro 16" M2 Pro. The VND algorithm is deterministic in these tests, and that is why the std dev was column  left out, the other columns were kept for appearance and to show that it was deterministic. All the test have been ran with the following parameters: 
-\begin{itemize}
-	\item \textbf{Max iterations:} 250
-	\item \textbf{Neighborhood order:} Swap, Reverse, Insert
-	\item \textbf{Step function:} First Improvement
-	\item \textbf{Times ran:} 10 for all instances except large which was 1 (only the time differs between runs)
-\end{itemize}
+The tests were ran on a Macbook Pro 16" M2 Pro. The VND algorithm is deterministic in these tests, and that is why the std dev was column left out, the other columns were kept for appearance and to show that it was deterministic.
 
 \subsection*{Small}
 
 \begin{table}[H]
 	\centering
+ \caption{Results for Small Instances \\($max\_iterations \,{=}\, 250\,, neighborhood\_order \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $Times\, ran \,{=}\, 10$)}
     \hspace*{-1cm}
 	\begin{tabular}{lrrrrr}
 		\toprule
@@ -1287,6 +1282,7 @@ The tests were ran on a Macbook Pro 16" M2 Pro. The VND algorithm is determinist
 \subsection*{Medium}
 \begin{table}[H]
  	 \centering 
+     \caption{Results for Medium Instances \\($max\_iterations \,{=}\, 250\,, neighborhood\_order \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $Times\, ran \,{=}\, 10$)}
      \hspace*{-1cm}
  	 \begin{tabular}{lrrrrr} 
  	 	\toprule 
@@ -1303,7 +1299,9 @@ The tests were ran on a Macbook Pro 16" M2 Pro. The VND algorithm is determinist
 \subsection*{Medium-Large}
 \begin{table}[H]
 	\centering
+	     \caption{Results for Medium-Large Instances \\($max\_iterations \,{=}\, 250\,, neighborhood\_order \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $Times\, ran \,{=}\, 10$)}
     \hspace*{-1cm}
+
 	\begin{tabular}{lrrrrr}
 		\toprule
 		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} \\
@@ -1325,6 +1323,7 @@ The tests were ran on a Macbook Pro 16" M2 Pro. The VND algorithm is determinist
 \subsection*{Large}
 \begin{table}[H]
 	\centering
+	     \caption{Results for Large Instances \\($max\_iterations \,{=}\, 250\,, neighborhood\_order \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $Times\, ran \,{=}\, 1$)}
     \hspace*{-1cm}
 	\begin{tabular}{lrrrrr}
 		\toprule
@@ -1355,7 +1354,7 @@ In this implementation GRASP uses greedy randomised construction and the VND imp
 The alpha parameter influences the randomness of the algorithm. It can have a value of 0 to 1 where 0 is purely greedy while 1 being completely random.
 
 \subsection*{Performance}
-The tests were ran on a PC with an AMD Ryzen 3700x processor. All the test have been ran with the following parameters: 
+The tests were ran on a Macbook Pro 16" M2 Pro. All the test have been ran with the following parameters: 
 \begin{itemize}
 	\item \textbf{Max iterations:} 25 (10 for medium\_large and large)
 	\item \textbf{Neighborhood structures:} Swap, Reverse, Insert
@@ -1368,6 +1367,7 @@ The tests were ran on a PC with an AMD Ryzen 3700x processor. All the test have 
 \subsection*{Small}
 \begin{table}[H]
 	\centering
+  \caption{Results for Small Instances \\($max\_iterations \,{=}\, 25\,, neighborhood\_structures \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $alpha \,{=}\, 0.5$, $vnd\_max\_iterations \,{=}\, 30$, $Times\, ran \,{=}\, 3$)}
     \hspace*{-2cm}
 	\begin{tabular}{lrrrrr}
 		\toprule
@@ -1392,6 +1392,7 @@ The tests were ran on a PC with an AMD Ryzen 3700x processor. All the test have 
 \subsection*{Medium}
 \begin{table}[H]
 	\centering 
+      \caption{Results for Medium Instances \\($max\_iterations \,{=}\, 25\,, neighborhood\_structures \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $alpha \,{=}\, 0.5$, $vnd\_max\_iterations \,{=}\, 30$, $Times\, ran \,{=}\, 3$)}
     \hspace*{-2cm}
 	\begin{tabular}{lrrrrr} 
 		\toprule 
@@ -1407,6 +1408,7 @@ The tests were ran on a PC with an AMD Ryzen 3700x processor. All the test have 
 \subsection*{Medium-Large}
 \begin{table}[H]
 	\centering
+      \caption{Results for Medium-Large Instances \\($max\_iterations \,{=}\, 10\,, neighborhood\_structures \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $alpha \,{=}\, 0.5$, $vnd\_max\_iterations \,{=}\, 50$, $Times\, ran \,{=}\, 3$)}
     \hspace*{-2cm}
 	\begin{tabular}{lrrrrr}
 		\toprule
@@ -1422,7 +1424,8 @@ The tests were ran on a PC with an AMD Ryzen 3700x processor. All the test have 
 \subsection*{Large}
 \begin{table}[H]
 	\centering
-        \hspace*{-2cm}
+      \caption{Results for Large Instances \\($max\_iterations \,{=}\, 10\,, neighborhood\_structures \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $alpha \,{=}\, 0.5$, $vnd\_max\_iterations \,{=}\, 50$, $Times\, ran \,{=}\, 3$)}
+    \hspace*{-2cm}
 	\begin{tabular}{lrrrrr}
 		\toprule
 		\textbf{Item} & \textbf{Avg Time (s)} & \textbf{Avg Cost} & \textbf{Min Cost} & \textbf{Max Cost} & \textbf{Std Dev} \\
@@ -1446,19 +1449,12 @@ Similar to neighborhoods, shaking neighborhoods are possible solutions which can
 \end{itemize}
 
 \subsection*{Performance}
-The tests were ran on a Macbook Pro 16" M2 Pro.  The algorithm was limited to 15 min runtime on a single instance. All the test have been ran with the following parameters: 
-\begin{itemize}
-	\item \textbf{Max iterations:} 2
-	\item \textbf{Neighborhood order:} Swap, Reverse, Insert
-	\item \textbf{Neighborhood shake order:} Swap, Swap-3, Inesrt, Reverse
-	\item \textbf{Step function:} First Improvement
-	\item \textbf{VND max iterations:} 3
-	\item \textbf{Times ran:} 5 for small and medium, 3 for medium\_large and large
-\end{itemize}
+The tests were ran on a Macbook Pro 16" M2 Pro.
 
 \subsection*{Small}
 \begin{table}[H]
 	\centering
+   \caption{Results for Small Instances \\($max\_iterations \,{=}\, 3\,, neighborhood\_structures \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $neighborhood\_shake\_order \,{=}\, [Swap, Swap-3, Insert, Reverse]$, $vnd\_max\_iterations \,{=}\, 50$, $Times\, ran \,{=}\, 3$)}
     \hspace*{-1cm}
 	\begin{tabular}{lrrrrr}
 		\toprule
@@ -1474,6 +1470,7 @@ The tests were ran on a Macbook Pro 16" M2 Pro.  The algorithm was limited to 15
 \subsection*{Medium}
 \begin{table}[H]
 	\centering 
+	   \caption{Results for Medium Instances \\($max\_iterations \,{=}\, 3\,, neighborhood\_structures \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $neighborhood\_shake\_order \,{=}\, [Swap, Swap-3, Insert, Reverse]$, $vnd\_max\_iterations \,{=}\, 50$, $Times\, ran \,{=}\, 3$)}
         \hspace*{-2cm}
 	\begin{tabular}{lrrrrr} 
 		\toprule 
@@ -1489,6 +1486,7 @@ The tests were ran on a Macbook Pro 16" M2 Pro.  The algorithm was limited to 15
 \subsection*{Medium-Large}
 \begin{table}[H]
 	\centering
+	   \caption{Results for Medium-Large Instances \\($max\_iterations \,{=}\, 3\,, neighborhood\_structures \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $neighborhood\_shake\_order \,{=}\, [Swap, Swap-3, Insert, Reverse]$, $vnd\_max\_iterations \,{=}\, 50$, $Times\, ran \,{=}\, 3$)}
         \hspace*{-2cm}
 	\begin{tabular}{lrrrrr}
 		\toprule
@@ -1504,6 +1502,7 @@ The tests were ran on a Macbook Pro 16" M2 Pro.  The algorithm was limited to 15
 \subsection*{Large}
 \begin{table}[H]
 	\centering
+	   \caption{Results for Large Instances \\($max\_iterations \,{=}\, 3\,, neighborhood\_structures \,{=}\, [Swap, Reverse, Insert]$, $step\_function \,{=}\, First\_Improvement$, $neighborhood\_shake\_order \,{=}\, [Swap, Swap-3, Insert, Reverse]$, $vnd\_max\_iterations \,{=}\, 50$, $Times\, ran \,{=}\, 3$)}
         \hspace*{-2cm}
 	\begin{tabular}{lrrrrr}
 		\toprule
