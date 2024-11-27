@@ -6,7 +6,7 @@ The **Minimum Weighted Crossings with Constraints Problem (MWCCP)** is a general
 
 We are given an **undirected weighted bipartite graph** $G = (U \cup V, E)$ with:
 - **Node sets**:
-  - $U = \{ 1, \dots, m \} $ (first partition)
+  - $U = \{ 1, \dots, m \}$ (first partition)
   - $V = \{m + 1, \dots, n\}$ (second partition)
 - $U $ and $V$ are disjoint.
 - **Edge set**: \( E \subseteq U \times V \) (edges between the two partitions).
