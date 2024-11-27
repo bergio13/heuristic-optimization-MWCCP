@@ -11,7 +11,7 @@ We are given an **undirected weighted bipartite graph** `G = (U ∪ V, E)` with:
   - `V = {m + 1, ..., n}`: the second partition.
 - `U` and `V` are disjoint.
 - **Edge set**: `E ⊆ U × V`, consisting of edges between the two partitions.
-- **Edge weights**: `w_e = w_{u,v}` for `e = (u, v) ∈ E`.
+- **Edge weights**: $w_e = w_{u,v}$ for $e = (u, v) ∈ E$.
 
 ### Constraints
 
