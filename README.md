@@ -1,4 +1,3 @@
-```markdown
 # Minimum Weighted Crossings with Constraints Problem (MWCCP)
 
 The **Minimum Weighted Crossings with Constraints Problem (MWCCP)** is a generalization of the Minimum Crossings Problem.
@@ -74,4 +73,4 @@ The indicator function `δ_π((u, v), (u', v'))` is defined as:
 ---
 
 This formulation ensures that the **weighted crossings** are minimized while satisfying all precedence constraints.
-```
+
