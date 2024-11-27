@@ -4,7 +4,7 @@ The **Minimum Weighted Crossings with Constraints Problem (MWCCP)** is a general
 
 ## Problem Definition
 
-We are given an **undirected weighted bipartite graph** `G = (U ∪ V, E)` with:
+We are given an **undirected weighted bipartite graph** $G = (U ∪ V, E)$ with:
 
 - **Node sets**:
   - `U = {1, ..., m}`: the first partition.
@@ -47,7 +47,7 @@ $$
 pos_π(v) < pos_π(v'), \forall (v, v') ∈ C
 $$
 
-where `pos_π(v)` is the position of node `v` in the permutation `π`.
+where $pos_π(v)$ is the position of node $v$ in the permutation $π$.
 
 ---
 
@@ -55,20 +55,20 @@ where `pos_π(v)` is the position of node `v` in the permutation `π`.
 
 The objective is to minimize the following function:
 
-```
+$$
 f(π) = ∑_{(u, v) ∈ E} ∑_{(u', v') ∈ E, u < u'} 
        (w_{u,v} + w_{u',v'}) · δ_π((u, v), (u', v'))
-```
+$$
 
 ### Crossing Indicator
 
-The indicator function `δ_π((u, v), (u', v'))` is defined as:
+The indicator function $δ_π((u, v), (u', v'))$ is defined as:
 
-```
+$$
 δ_π((u, v), (u', v')) = 
     1, if pos_π(v) > pos_π(v'),
     0, otherwise.
-```
+$$
 
 ---
 
