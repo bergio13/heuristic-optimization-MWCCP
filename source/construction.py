@@ -29,6 +29,7 @@ class DeterministicConstruction:
                 self.graph.in_degree[v_next] -= 1
                 if self.graph.in_degree[v_next] == 0:
                     candidates.append(v_next)
+                    
         # Verify the solution before returning
         if not self.verify_solution():
             raise ValueError("Construction resulted in invalid solution!")
@@ -76,17 +77,16 @@ class RandomizedConstruction:
 
     def calculate_node_score(self, node, current_ordering):
         """
-        Calculate a score for a node based on both its weights and potential crossings
+        Calculate a score for a node based on its weights
         """
         if not current_ordering:
             return self.node_weights[node]
 
         score = 0
-        position = len(current_ordering)
 
         # Consider existing edges
         for u, weight in self.node_connections[node]:
-            score += weight  # Base weight
+            score += weight 
 
         return score
 
@@ -108,6 +108,8 @@ class RandomizedConstruction:
         # Apply Boltzmann distribution with temperature
         probs = np.exp(-normalized_scores / self.alpha)
         probs = probs / np.sum(probs)
+        
+        probs = np.nan_to_num(probs)  # Replace NaN with 0
 
         return probs
 
