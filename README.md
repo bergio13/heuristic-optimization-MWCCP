@@ -72,6 +72,10 @@ $δ_π((u, v), (u', v')) =$
 This formulation ensures that the **weighted crossings** are minimized while satisfying all precedence constraints.
 
 ---
+# Repository Content
+The `source` folder contains the python code for the various heuristics used.
+
+---
 ## Results
 
 ![Algorithms Comparison](https://github.com/bergio13/heuristic-optimization-MWCCP/blob/main/images/algo_comp.png)
