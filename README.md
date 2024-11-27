@@ -76,7 +76,7 @@ This formulation ensures that the **weighted crossings** are minimized while sat
 The `source` folder contains the python code for the various heuristics used.
 
 ---
-## Results
+# Results
 
 ![Algorithms Comparison](https://github.com/bergio13/heuristic-optimization-MWCCP/blob/main/images/algo_comp.png)
 
