@@ -1,13 +1,5 @@
-from collections import defaultdict, deque
-import itertools
-import numpy as np
-import random
-from enum import Enum
-from typing import List, Callable, Any, Tuple
-from dataclasses import dataclass
-import time
-import os
-import bisect
+from collections import defaultdict
+
 from helpers import *
 
 class Graph:
@@ -31,8 +23,6 @@ class Graph:
 
     def add_edge(self, u, v, weight):
         self.edges.append((u, v, weight))
-        insertion_point = bisect.bisect_left(self.node_edges[v], (u, weight))
-        self.node_edges[v].insert(insertion_point, (u, weight))
         um = u - 1
         for i in range(um + 1, len(self.node_edges_prefix_sum[v])):
             self.node_edges_prefix_sum[v][i] += weight
@@ -107,8 +97,8 @@ def cost_function_bit(graph, permutation):
     edges.sort()
     
     total_cost = 0
-    bit = BinaryIndexedTree(max_pos)
-    weight_sum = BinaryIndexedTree(max_pos)
+    bit = BinaryIndexedTree(max_pos) # BIT to count number of crossings
+    weight_sum = BinaryIndexedTree(max_pos) # BIT to store sum of weights of edges
     
     # Process edges in order of increasing u
     for i, (u, pos_v, w) in enumerate(edges):
@@ -117,8 +107,7 @@ def cost_function_bit(graph, permutation):
         total_cost += crossings * w
         
         # Add contribution from weights of crossed edges
-        weight_contribution = (weight_sum.query(max_pos - 1) - 
-                             weight_sum.query(pos_v))
+        weight_contribution = (weight_sum.query(max_pos - 1) - weight_sum.query(pos_v))
         total_cost += weight_contribution
         
         # Update BITs
