@@ -64,9 +64,9 @@ $$
 
 The indicator function $δ_π((u, v), (u', v'))$ is defined as:
 
-δ_π((u, v), (u', v')) =
-- 1, if pos_π(v) > pos_π(v')`
-- 0, otherwise
+$δ_π((u, v), (u', v')) =$
+- $1$, if $pos_π(v) > pos_π(v')$
+- $0$, otherwise
 
 ---
 
