@@ -10,7 +10,7 @@
 \graphicspath{{./images/}}
 
 \title{Programming Problem 1}
-\author{Group 19}
+\author{Group 19 - Bertone and Hostic}
 \date{November 2024}
 
 \begin{document}
@@ -104,10 +104,10 @@ After constructing \( \pi \), the algorithm verifies:
 \end{itemize}
 
 \subsection*{Results}
-The quality of the solution given by our Deterministic Construction Heuristic is competitive as it is visible from the competition results, while being very fast. Below we report some performance metrics for the different test instance sizes.
+The quality of the solution given by our Deterministic Construction Heuristic is competitive as it is visible from the competition results, while being very fast. Below we report some performance metrics for the different test instance sizes. The computations are performed using the free CPU for Colab (Intel Xeon CPU with 2 vCPUs) and 13GB of RAM.
 
 \subsubsection*{Small}
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{lcc}
 \toprule
@@ -152,7 +152,7 @@ inst\_200\_20\_00002 & 0.002308 & 8390614.0  \\
 \end{table}
 
 \subsubsection*{Medium-Large}
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{lcc}
 \toprule
@@ -232,7 +232,7 @@ We also add the possibility to run the single-solution construction multiple tim
 
 
 \subsection*{Results}
-The results are computed using a single iteration and a parameter $\alpha = 0.6$. The randomized construction is repeated 30 times and the results are averaged.
+The results are computed using a single iteration and a parameter $\alpha = 0.6$. The randomized construction is repeated 30 times and the results are averaged. The computations are performed using the free CPU for Colab (Intel Xeon CPU with 2 vCPUs) and 13GB of RAM.
 
 \subsubsection*{Small}
 
@@ -427,6 +427,7 @@ The local search algorithm follows these steps:
 \end{enumerate}
 
 \subsection*{Results}
+The computations are performed using the free CPU for Colab (Intel Xeon CPU with 2 vCPUs) and 13GB of RAM.
 
 \subsubsection*{Neighborhood: Swap - Step Function: Best Improvement}
 
@@ -1310,7 +1311,7 @@ The step function has a big influence on the solution. The \textit{Random} funct
 
 
 \paragraph{Objective function:}
-There are multiple implementations of the cost functions and the 2 most notable are the \textit{cost\_function\_bit} which uses a Fenwick tree to efficiently calculate the cost ($O(E \log E)$, where $E$ is the number of edges) and the cost function which uses delta evaluation using pre calculated prefix sums of weights for the nodes and using only the nodes that have changed ($O(E*diff)$, where $diff$ is the number of changed node). In most cases the second function was used as it performs better in most cases, but the perfomance gains vary based on the machine the experiments were ran on.
+There are multiple implementations of the cost functions and the 2 most notable are the \textit{cost\_function\_bit} which uses a Fenwick tree to efficiently calculate the cost ($O(E \log V)$, where $E$ is the number of edges) and the cost function which uses delta evaluation using pre calculated prefix sums of weights for the nodes and using only the nodes that have changed ($O(E*diff)$, where $diff$ is the number of changed node). In most cases the second function was used as it performs better in most cases, but the perfomance gains vary based on the machine the experiments were ran on.
 
 \paragraph{Neighborhood order:}
 The order of the neighborhood functions also has a big influence on speed, and a lesser influence on cost. The \textit{Swap} neighborhood is the fastes but performs the worst, \textit{Reverse} neigbhborhood performs the second best in both aspects and the \textit{Insert} neigbhborhood is the slowest and give an almost negligeble cost improvement over the \textit{Reverse} neigbhborhood. For larger instances, the first neighborhood in the order must be the \textit{Swap} neighborhood as otherwise it would take too much time. This can be seen on the following graph:
@@ -1414,7 +1415,7 @@ The tests were ran on a Macbook Pro 16" M2 Pro. The VND algorithm is determinist
 		\texttt{inst\_1000\_60\_00009} & 23.47634 & 358888563.00   & 358888563.00   & 358888563.00 \\
 		\texttt{inst\_1000\_60\_00010} & 23.55307 & 293069393.00   & 293069393.00   & 293069393.00 \\
 		\midrule
-		\textbf{Summary Statistics} & \textbf{2830893295.20} & \textbf{75.14143} & - & -  \\
+		\textbf{Summary Statistics} & \textbf{75.14143} & \textbf{2830893295.20}  & - & -  \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:large_performance_metrics_vnd}
