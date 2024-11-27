@@ -68,7 +68,6 @@ $δ_π((u, v), (u', v')) =$
 - $1$, if $pos_π(v) > pos_π(v')$
 - $0$, otherwise
 
----
 
 This formulation ensures that the **weighted crossings** are minimized while satisfying all precedence constraints.
 
