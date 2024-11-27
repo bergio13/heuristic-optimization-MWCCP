@@ -73,8 +73,8 @@ This formulation ensures that the **weighted crossings** are minimized while sat
 
 ---
 # Repository Content
-The `source` folder contains the python code for the various heuristics used.
-
+- `source` is a folder containing the python code for the different heuristics used
+- `report.pdf` contains a description of the various heuristics, as well as detailed results and analysis of how these perform when applied to different instances of the MWCPP
 ---
 # Results
 
