@@ -1,0 +1,50 @@
+ACO Parameters: {'alpha': 1.87, 'beta': 1.07, 'evaporation_rate': 0.69, 'ant_count': 22, 'iterations': 55, 'tau_min': 0.51, 'tau_max': 7.85}
+content/test/med_large/inst_500_40_00007 - 47.40 - 159165373.0
+content/test/med_large/inst_500_40_00007 - 49.05 - 158995792.0
+content/test/med_large/inst_500_40_00007 - 45.33 - 159507431.0
+content/test/med_large/inst_500_40_00007 - 47.75 - 158985028.0
+content/test/med_large/inst_500_40_00007 - 47.54 - 158929284.0
+Average cost: 159116581.60 - Std: 210770.36
+Average time: 47.41 - Std: 1.19
+content/test/med_large/inst_500_40_00001 - 32.16 - 38580532.0
+content/test/med_large/inst_500_40_00001 - 31.85 - 38607671.0
+content/test/med_large/inst_500_40_00001 - 33.50 - 38584488.0
+content/test/med_large/inst_500_40_00001 - 31.70 - 38425062.0
+content/test/med_large/inst_500_40_00001 - 33.34 - 38551886.0
+Average cost: 38549927.80 - Std: 64900.85
+Average time: 32.51 - Std: 0.76
+content/test/med_large/inst_500_40_00013 - 60.48 - 321855494.0
+content/test/med_large/inst_500_40_00013 - 61.65 - 321973093.0
+content/test/med_large/inst_500_40_00013 - 61.24 - 321479967.0
+content/test/med_large/inst_500_40_00013 - 60.51 - 321600517.0
+content/test/med_large/inst_500_40_00013 - 61.94 - 322991316.0
+Average cost: 321980077.40 - Std: 535228.89
+Average time: 61.16 - Std: 0.59
+content/test/med_large/inst_500_40_00004 - 41.36 - 88756630.0
+content/test/med_large/inst_500_40_00004 - 39.24 - 88500801.0
+content/test/med_large/inst_500_40_00004 - 40.36 - 88473078.0
+content/test/med_large/inst_500_40_00004 - 40.76 - 88766438.0
+content/test/med_large/inst_500_40_00004 - 38.59 - 88730551.0
+Average cost: 88645499.60 - Std: 130289.44
+Average time: 40.06 - Std: 1.01
+content/test/med_large/inst_500_40_00016 - 68.70 - 422910272.0
+content/test/med_large/inst_500_40_00016 - 64.22 - 421283582.0
+content/test/med_large/inst_500_40_00016 - 64.72 - 422365203.0
+content/test/med_large/inst_500_40_00016 - 69.50 - 423615955.0
+content/test/med_large/inst_500_40_00016 - 64.71 - 422416059.0
+Average cost: 422518214.20 - Std: 763794.34
+Average time: 66.37 - Std: 2.25
+content/test/med_large/inst_500_40_00019 - 71.11 - 518702435.0
+content/test/med_large/inst_500_40_00019 - 69.29 - 518786737.0
+content/test/med_large/inst_500_40_00019 - 72.92 - 517488057.0
+content/test/med_large/inst_500_40_00019 - 71.43 - 517267855.0
+content/test/med_large/inst_500_40_00019 - 69.58 - 517619991.0
+Average cost: 517973015.00 - Std: 640508.84
+Average time: 70.87 - Std: 1.32
+content/test/med_large/inst_500_40_00010 - 54.32 - 238268543.0
+content/test/med_large/inst_500_40_00010 - 57.19 - 238628550.0
+content/test/med_large/inst_500_40_00010 - 58.26 - 238024439.0
+content/test/med_large/inst_500_40_00010 - 55.99 - 237859186.0
+content/test/med_large/inst_500_40_00010 - 59.18 - 238177068.0
+Average cost: 238191557.20 - Std: 259036.12
+Average time: 56.99 - Std: 1.71

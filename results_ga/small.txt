@@ -1,0 +1,78 @@
+GA Parameters: GAParameters(population_size=40, generations=150, elite_size=13, tournament_size=25, mutation_rate=0.255, crossover_rate=0.79, constraint_penalty=213178)
+content/test/small/inst_50_4_00006 - 0.27 - 2970.0
+content/test/small/inst_50_4_00006 - 0.28 - 2983.0
+content/test/small/inst_50_4_00006 - 0.27 - 2965.0
+content/test/small/inst_50_4_00006 - 0.28 - 2967.0
+content/test/small/inst_50_4_00006 - 0.27 - 2972.0
+Average cost: 2971.40 - Std: 6.28
+Average time: 0.27 - Std: 0.00
+content/test/small/inst_50_4_00006 - 0.28 - 2976.0
+content/test/small/inst_50_4_00006 - 0.27 - 2976.0
+content/test/small/inst_50_4_00006 - 0.28 - 2967.0
+content/test/small/inst_50_4_00006 - 0.28 - 2983.0
+content/test/small/inst_50_4_00006 - 0.27 - 2976.0
+Average cost: 2975.60 - Std: 5.08
+Average time: 0.28 - Std: 0.00
+content/test/small/inst_50_4_00001 - 0.62 - 74291.0
+content/test/small/inst_50_4_00001 - 0.62 - 74271.0
+content/test/small/inst_50_4_00001 - 0.61 - 74326.0
+content/test/small/inst_50_4_00001 - 0.63 - 74303.0
+content/test/small/inst_50_4_00001 - 0.62 - 74296.0
+Average cost: 74297.40 - Std: 17.83
+Average time: 0.62 - Std: 0.01
+content/test/small/inst_50_4_00008 - 0.25 - 1407.0
+content/test/small/inst_50_4_00008 - 0.25 - 1403.0
+content/test/small/inst_50_4_00008 - 0.24 - 1407.0
+content/test/small/inst_50_4_00008 - 0.24 - 1403.0
+content/test/small/inst_50_4_00008 - 0.24 - 1414.0
+Average cost: 1406.80 - Std: 4.02
+Average time: 0.24 - Std: 0.00
+content/test/small/inst_50_4_00009 - 0.23 - 1315.0
+content/test/small/inst_50_4_00009 - 0.22 - 1335.0
+content/test/small/inst_50_4_00009 - 0.23 - 1306.0
+content/test/small/inst_50_4_00009 - 0.22 - 1304.0
+content/test/small/inst_50_4_00009 - 0.23 - 1311.0
+Average cost: 1314.20 - Std: 11.09
+Average time: 0.23 - Std: 0.00
+content/test/small/inst_50_4_00007 - 0.26 - 2051.0
+content/test/small/inst_50_4_00007 - 0.25 - 2055.0
+content/test/small/inst_50_4_00007 - 0.26 - 2047.0
+content/test/small/inst_50_4_00007 - 0.27 - 2053.0
+content/test/small/inst_50_4_00007 - 0.25 - 2060.0
+Average cost: 2053.20 - Std: 4.31
+Average time: 0.26 - Std: 0.00
+content/test/small/inst_50_4_00010 - 0.23 - 862.0
+content/test/small/inst_50_4_00010 - 0.22 - 862.0
+content/test/small/inst_50_4_00010 - 0.23 - 853.0
+content/test/small/inst_50_4_00010 - 0.23 - 853.0
+content/test/small/inst_50_4_00010 - 0.23 - 857.0
+Average cost: 857.40 - Std: 4.03
+Average time: 0.23 - Std: 0.00
+content/test/small/inst_50_4_00002 - 0.45 - 24016.0
+content/test/small/inst_50_4_00002 - 0.44 - 24003.0
+content/test/small/inst_50_4_00002 - 0.43 - 24117.0
+content/test/small/inst_50_4_00002 - 0.46 - 24013.0
+content/test/small/inst_50_4_00002 - 0.43 - 24003.0
+Average cost: 24030.40 - Std: 43.61
+Average time: 0.44 - Std: 0.01
+content/test/small/inst_50_4_00005 - 0.29 - 3620.0
+content/test/small/inst_50_4_00005 - 0.28 - 3602.0
+content/test/small/inst_50_4_00005 - 0.29 - 3622.0
+content/test/small/inst_50_4_00005 - 0.28 - 3599.0
+content/test/small/inst_50_4_00005 - 0.28 - 3613.0
+Average cost: 3611.20 - Std: 9.28
+Average time: 0.28 - Std: 0.00
+content/test/small/inst_50_4_00004 - 0.31 - 6551.0
+content/test/small/inst_50_4_00004 - 0.31 - 6534.0
+content/test/small/inst_50_4_00004 - 0.32 - 6540.0
+content/test/small/inst_50_4_00004 - 0.31 - 6547.0
+content/test/small/inst_50_4_00004 - 0.32 - 6547.0
+Average cost: 6543.80 - Std: 6.05
+Average time: 0.31 - Std: 0.00
+content/test/small/inst_50_4_00003 - 0.35 - 12317.0
+content/test/small/inst_50_4_00003 - 0.35 - 12329.0
+content/test/small/inst_50_4_00003 - 0.36 - 12285.0
+content/test/small/inst_50_4_00003 - 0.35 - 12342.0
+content/test/small/inst_50_4_00003 - 0.36 - 12286.0
+Average cost: 12311.80 - Std: 22.89
+Average time: 0.36 - Std: 0.00

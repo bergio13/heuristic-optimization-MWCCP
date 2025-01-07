@@ -1,0 +1,71 @@
+GA Parameters: GAParameters(population_size=40, generations=150, elite_size=13, tournament_size=25, mutation_rate=0.255, crossover_rate=0.79, constraint_penalty=213178)
+content/test/large/inst_1000_60_00010 - 78.99 - 280536991.0
+content/test/large/inst_1000_60_00010 - 72.58 - 280879648.0
+content/test/large/inst_1000_60_00010 - 74.82 - 279832332.0
+content/test/large/inst_1000_60_00010 - 75.53 - 281226805.0
+content/test/large/inst_1000_60_00010 - 72.66 - 279981707.0
+Average cost: 280491496.60 - Std: 526838.32
+Average time: 74.92 - Std: 2.35
+content/test/large/inst_1000_60_00003 - 207.56 - 2639309393.0
+content/test/large/inst_1000_60_00003 - 200.88 - 2637014423.0
+content/test/large/inst_1000_60_00003 - 213.91 - 2635439581.0
+content/test/large/inst_1000_60_00003 - 208.10 - 2641685802.0
+content/test/large/inst_1000_60_00003 - 213.06 - 2638048816.0
+Average cost: 2638299603.00 - Std: 2115671.39
+Average time: 208.70 - Std: 4.67
+content/test/large/inst_1000_60_00004 - 163.75 - 1567986733.0
+content/test/large/inst_1000_60_00004 - 167.28 - 1571772188.0
+content/test/large/inst_1000_60_00004 - 161.18 - 1572061073.0
+content/test/large/inst_1000_60_00004 - 160.99 - 1567803702.0
+content/test/large/inst_1000_60_00004 - 160.85 - 1570491961.0
+Average cost: 1570023131.40 - Std: 1816864.96
+Average time: 162.81 - Std: 2.48
+content/test/large/inst_1000_60_00005 - 135.48 - 1033263551.0
+content/test/large/inst_1000_60_00005 - 140.99 - 1034169374.0
+content/test/large/inst_1000_60_00005 - 131.15 - 1032035584.0
+content/test/large/inst_1000_60_00005 - 133.54 - 1029816197.0
+content/test/large/inst_1000_60_00005 - 139.19 - 1033545629.0
+Average cost: 1032566067.00 - Std: 1540117.93
+Average time: 136.07 - Std: 3.60
+content/test/large/inst_1000_60_00002 - 283.77 - 5237559907.0
+content/test/large/inst_1000_60_00002 - 281.48 - 5243323500.0
+content/test/large/inst_1000_60_00002 - 292.21 - 5242777155.0
+content/test/large/inst_1000_60_00002 - 276.39 - 5242568402.0
+content/test/large/inst_1000_60_00002 - 292.55 - 5237006884.0
+Average cost: 5240647169.60 - Std: 2763099.19
+Average time: 285.28 - Std: 6.27
+content/test/large/inst_1000_60_00009 - 81.01 - 340457336.0
+content/test/large/inst_1000_60_00009 - 86.92 - 339409336.0
+content/test/large/inst_1000_60_00009 - 83.02 - 338921218.0
+content/test/large/inst_1000_60_00009 - 83.02 - 340844922.0
+content/test/large/inst_1000_60_00009 - 83.61 - 339614526.0
+Average cost: 339849467.60 - Std: 702992.77
+Average time: 83.52 - Std: 1.92
+content/test/large/inst_1000_60_00007 - 102.09 - 543580875.0
+content/test/large/inst_1000_60_00007 - 103.31 - 545409412.0
+content/test/large/inst_1000_60_00007 - 100.08 - 545657337.0
+content/test/large/inst_1000_60_00007 - 102.78 - 545777916.0
+content/test/large/inst_1000_60_00007 - 106.24 - 543493785.0
+Average cost: 544783865.00 - Std: 1025074.74
+Average time: 102.90 - Std: 2.00
+content/test/large/inst_1000_60_00001 - 485.64 - 14932274808.0
+content/test/large/inst_1000_60_00001 - 489.34 - 14936825818.0
+content/test/large/inst_1000_60_00001 - 466.50 - 14950925802.0
+content/test/large/inst_1000_60_00001 - 477.74 - 14939321334.0
+content/test/large/inst_1000_60_00001 - 464.41 - 14945649402.0
+Average cost: 14940999432.80 - Std: 6580412.95
+Average time: 476.73 - Std: 9.96
+content/test/large/inst_1000_60_00006 - 118.65 - 744186502.0
+content/test/large/inst_1000_60_00006 - 117.94 - 744481622.0
+content/test/large/inst_1000_60_00006 - 115.12 - 743091808.0
+content/test/large/inst_1000_60_00006 - 117.87 - 741743231.0
+content/test/large/inst_1000_60_00006 - 113.91 - 743026050.0
+Average cost: 743305842.60 - Std: 971994.64
+Average time: 116.70 - Std: 1.84
+content/test/large/inst_1000_60_00008 - 89.37 - 427499933.0
+content/test/large/inst_1000_60_00008 - 91.57 - 427098622.0
+content/test/large/inst_1000_60_00008 - 93.75 - 430645290.0
+content/test/large/inst_1000_60_00008 - 94.29 - 428661507.0
+content/test/large/inst_1000_60_00008 - 89.78 - 428956373.0
+Average cost: 428572345.00 - Std: 1246952.71
+Average time: 91.75 - Std: 2.00

@@ -1,0 +1,50 @@
+GA Parameters: GAParameters(population_size=40, generations=150, elite_size=13, tournament_size=25, mutation_rate=0.255, crossover_rate=0.79, constraint_penalty=213178)
+content/test/med_large/inst_500_40_00007 - 41.61 - 159120597.0
+content/test/med_large/inst_500_40_00007 - 43.31 - 158395698.0
+content/test/med_large/inst_500_40_00007 - 44.10 - 158530008.0
+content/test/med_large/inst_500_40_00007 - 42.81 - 158751610.0
+content/test/med_large/inst_500_40_00007 - 44.67 - 159087949.0
+Average cost: 158777172.40 - Std: 290444.12
+Average time: 43.30 - Std: 1.06
+content/test/med_large/inst_500_40_00001 - 24.18 - 38071236.0
+content/test/med_large/inst_500_40_00001 - 25.33 - 38427697.0
+content/test/med_large/inst_500_40_00001 - 23.92 - 38311707.0
+content/test/med_large/inst_500_40_00001 - 25.02 - 38380236.0
+content/test/med_large/inst_500_40_00001 - 22.67 - 38296822.0
+Average cost: 38297539.60 - Std: 122632.94
+Average time: 24.22 - Std: 0.93
+content/test/med_large/inst_500_40_00013 - 60.34 - 321715822.0
+content/test/med_large/inst_500_40_00013 - 55.03 - 321904014.0
+content/test/med_large/inst_500_40_00013 - 62.19 - 321880412.0
+content/test/med_large/inst_500_40_00013 - 63.74 - 321879414.0
+content/test/med_large/inst_500_40_00013 - 59.50 - 322330164.0
+Average cost: 321941965.20 - Std: 205417.04
+Average time: 60.16 - Std: 2.96
+content/test/med_large/inst_500_40_00004 - 36.43 - 89075468.0
+content/test/med_large/inst_500_40_00004 - 33.53 - 88493670.0
+content/test/med_large/inst_500_40_00004 - 33.06 - 88604509.0
+content/test/med_large/inst_500_40_00004 - 32.74 - 88667896.0
+content/test/med_large/inst_500_40_00004 - 32.24 - 88831770.0
+Average cost: 88734662.60 - Std: 202510.91
+Average time: 33.60 - Std: 1.48
+content/test/med_large/inst_500_40_00016 - 67.84 - 420478963.0
+content/test/med_large/inst_500_40_00016 - 66.96 - 420648024.0
+content/test/med_large/inst_500_40_00016 - 63.10 - 421200217.0
+content/test/med_large/inst_500_40_00016 - 72.85 - 421004388.0
+content/test/med_large/inst_500_40_00016 - 66.10 - 421643899.0
+Average cost: 420995098.20 - Std: 412300.51
+Average time: 67.37 - Std: 3.17
+content/test/med_large/inst_500_40_00019 - 73.93 - 516534698.0
+content/test/med_large/inst_500_40_00019 - 78.15 - 516773026.0
+content/test/med_large/inst_500_40_00019 - 75.69 - 516712663.0
+content/test/med_large/inst_500_40_00019 - 79.02 - 517514082.0
+content/test/med_large/inst_500_40_00019 - 79.81 - 517111769.0
+Average cost: 516929247.60 - Std: 347081.78
+Average time: 77.32 - Std: 2.19
+content/test/med_large/inst_500_40_00010 - 50.30 - 237747359.0
+content/test/med_large/inst_500_40_00010 - 52.14 - 237669656.0
+content/test/med_large/inst_500_40_00010 - 51.60 - 237711710.0
+content/test/med_large/inst_500_40_00010 - 53.66 - 236880558.0
+content/test/med_large/inst_500_40_00010 - 51.52 - 237906587.0
+Average cost: 237583174.00 - Std: 360339.44
+Average time: 51.84 - Std: 1.09
