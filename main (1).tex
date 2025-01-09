@@ -1,0 +1,244 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{float}
+
+\title{Programming Project 2}
+\author{Giorgio Bertone, Jura }
+\date{December 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Task 1}
+\subsection{Genetic Algorithm}
+
+The GA framework operates on a population of candidate solutions, represented as permutations of graph vertices $V$, to minimize edge crossing costs while satisfying precedence constraints. The fitness function incorporates a penalty mechanism to discourage constraint violations, and ensure feasible solutions are favored.
+
+\subsubsection*{Parameters}
+\begin{itemize}
+    \item \textbf{Population Size}: Number of individuals in each generation.
+    \item \textbf{Generations}: Total number of generations to evolve.
+    \item \textbf{Elite Size}: Number of top individuals preserved unaltered (elitism).
+    \item \textbf{Tournament Size}: Size of subsets for tournament-based parent selection.
+    \item \textbf{Mutation Rate}: Probability of applying mutation to offspring.
+    \item \textbf{Crossover Rate}: Probability of applying the crossover operator.
+    \item \textbf{Constraint Penalty}: Penalty weight for constraint violations in fitness evaluation.
+\end{itemize}
+
+\subsubsection*{Fitness Function}
+The fitness function combines the objective function (computed using \textit{cost\_function\_bit}) and a penalty term proportional to the number of violated constraints to balance minimization of edge crossings with adherence to problem constraints.
+
+\subsubsection*{Genetic Operators}
+
+\begin{enumerate}
+    \item \textbf{Selection}: A tournament selection mechanism is used to choose parents, favoring individuals with higher fitness.
+    \item \textbf{Crossover}: The Order Crossover (OX) operator generates offspring by preserving subsequences from one parent while maintaining valid permutations.
+    \item \textbf{Mutation}: Swap mutation, involving a variable number of element swaps, is applied to introduce diversity.
+    \item \textbf{Repair}: A repair mechanism ensures offspring are feasible by adjusting orderings to satisfy constraints when necessary.
+\end{enumerate}
+
+\subsubsection*{Algorithm}
+\begin{itemize}
+    \item \textbf{Initialization}: The initial population is generated randomly and the individuals representing invalid solutions are repaired to ensure feasibility.
+    \item \textbf{Evaluation}: Fitness scores are calculated for each individual in the population.
+    \item \textbf{Selection and Reproduction}: Parents are selected through tournament selection, and offspring are produced using crossover, mutation, and repair.
+    \item \textbf{Elitism}: The best-performing individuals are carried forward unchanged.
+    \item \textbf{Iteration}: The process is repeated for a predefined number of generations, recording fitness statistics at each step.
+\end{itemize}
+
+\subsection{Ant Colony Optimization}
+The MaxMin Ant System (MMAS) is a variation of the ACO metaheuristic, that controls the maximum and minimum pheromone amounts on each trail in order to avoid stagnation. Indeed, it has been shown empirically that MMAS strikes a good balance between intensification (exploiting good solutions) and diversification (exploring new regions). The MWCCP is modeled as a graph optimization problem, where ants traverse the solution space guided by pheromone trails and heuristic information.
+
+\subsubsection*{Parameters}
+\begin{itemize}
+    \item \textbf{Alpha ($\alpha$)}: Controls the influence of pheromones on ant decision-making; higher values promote exploitation.
+    \item \textbf{Beta ($\beta$)}: Controls the importance of heuristic information; higher values favor heuristic-driven exploration.
+    \item \textbf{Evaporation Rate ($\rho$)}: Regulates pheromone decay; higher values reduce old pheromone influence more aggressively, enhancing exploration.
+    \item \textbf{Ant Count}: Determines the number of ants per iteration; more ants increase diversity, but raise computational cost.
+    \item \textbf{Iterations}: Sets the number of algorithm cycles; more iterations allow deeper exploration but require more time.
+    \item \textbf{Tau Min ($\tau_{min}$)}: Limits minimum pheromone levels; prevents solution components from being ignored.
+    \item \textbf{Tau Max ($\tau_{max}$)}: Caps maximum pheromone levels; ensures search diversity.
+\end{itemize}
+
+
+\subsubsection*{Components}
+\begin{itemize}
+    \item \textbf{Pheromone Matrix}: Initialized uniformly with high values to encourage exploration in early iterations.
+    \item \textbf{Heuristic Information}: Derived from graph properties, such as vertex in-degree or edge weights, to prioritize promising candidates during solution construction.
+\end{itemize}
+
+\subsubsection*{Algorithm}
+\begin{enumerate}
+    \item \textbf{Initialisation}: The pheromone matrix and the heuristic information matrix are created as discussed above
+    \item \textbf{Solution Construction}: Each ant constructs an ordering of the vertices probabilistically based on pheromone intensity and heuristic attractiveness of each candidate vertex. The probabilities are calculated as a weighted combination of these factors, controlled by parameters that adjust their influence.
+    \item \textbf{Constraints Handling}: After constructing a solution, the algorithm verifies if it satisfies the constraints. If not a a repair mechanism rearranges it.
+    \item \textbf{Pheromone Update}: After all ants construct solutions, the pheromone levels are updated based on the global best solution. Evaporation is also applied to ensure pheromone decay over time, preventing premature convergence. Then the pheromone values are clipped.
+    \item \textbf{Dynamic Adjustment}: Upper and lower bounds for the pheromone levels are dynamically adjusted based on the best solution cost to maintain diversity and guide the search effectively.
+    \item \textbf{Iteration}: The algorithm iterates over multiple cycles, with each cycle involving solution construction, evaluation, and pheromone updates.
+
+\end{enumerate}
+
+
+
+\section{Task 3}
+
+We now have to test whether there is a significant difference between the performance of the two algorithms on the test instances. To do so, we apply the tuned algorithms several times on each test instance and then get the best performance for each instance. Then compare them using a statistical test for paired samples since the objective function values are determined on the same instances. 
+\subsection{Small}
+We first test if the difference of both samples is approximately normally distributed.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{small_diff.png}
+    \caption{Performance difference on small instances}
+    \label{fig:enter-label}
+\end{figure}
+ Since this is not the case we decided to use the \textbf{Wilcoxon-Test}.  We use a two-sided test to test wether there is a significant difference betweeen the two algorithms. The null hypothesis is $$
+ H_0 : \theta_{GA} = \theta_{ACO} $$
+ and the alternative is
+ $$
+ H_1 : \theta_{GA} \neq \theta_{ACO}
+ $$
+ We get: 
+ \begin{verbatim}
+Test Result: 
+p-value = 0.0020 
+H0 can be rejected on a level of significance of 0.05 
+ \end{verbatim}
+ We can reject the null hypothesis which means there is statistical evidence for the two performances to be different.
+
+ To interpret the direction of the effect, since we can not repeat a test changing alternative as this would be considered p-hacking, we now look at the mean and median of the difference between the performances as the test just told us the results are statistically significant. 
+ We see that:
+ \begin{verbatim}
+     Mean Difference: -171.2 
+     Median Difference: -126.5 
+ \end{verbatim}
+
+ The negative mean and median difference indicate that the objective function values of the solutions found by the ACO algorithm tend to be higher, and considering we want to minimize this value we can conclude on the small instances the GA algorithm performs better.
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.5\linewidth]{cost_small.png}
+     \caption{Cost difference between solutions found by GA and ACO for each small instance}
+     \label{fig:enter-label}
+ \end{figure}
+
+Next, we include a plot depicting the standard deviation of the solutions found by the two algorithms.
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.5\linewidth]{var_small.png}
+     \caption{Standard Deviation of solutions on small instances}
+     \label{fig:enter-label}
+ \end{figure}
+ 
+\subsection{Medium}
+
+We repeat the same process for the medium instances.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{med_diff.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+Again this doesn't look like a normal distribution so we will use the Wilcoxon test, from which we get:
+\begin{verbatim}
+Test Result: 
+p-value = 0.0020 
+H0 can be rejected on a level of significance of 0.05. 
+\end{verbatim}
+Computing again the negative mean and median we get:
+\begin{verbatim}
+Mean Difference: -24965.1 
+Median Difference: -20181.0 
+\end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{cost_med.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+We can conclude that also on medium instances, ACO performs worse than GA.
+As before, we also include the standard deviation of the solutions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{var_med.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+\textbf{Medium-Large}
+
+We repeat once again the same process for the medium-large test instances.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{med_large_diff.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+Again this doesn't look like a normal distribution so we will use the Wilcoxon test, from which we get:
+\begin{verbatim}
+Test Result: p-value = 0.0781 
+H0 cannot be rejected on a level of significance of 0.05. 
+\end{verbatim}
+This time, we cannot reject the null hypothesis at level of significance of $0.05$, but we can do it for significance $0.1$. We still also compute the negative mean and median to have more information about the direction of the effect and we get:
+\begin{verbatim}
+Mean Difference: -449624.14 
+Median Difference: -533586.0 
+\end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{med_larg_diff.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+We can conclude that also on medium-large instances ACO performs worse than GA with significance of $0.1$.
+As before, we also include the standard deviation of the solutions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{var_medlarge.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Large}
+
+Finally, we repeat the same process for the large test instances.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{large_diff.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+Once again this doesn't look like a normal distribution so we will use the Wilcoxon test, from which we get:
+\begin{verbatim}
+Test Result: 
+p-value = 0.0195 
+H0 can be rejected on a level of significance of 0.05.  
+\end{verbatim}
+Computing again the negative mean and median we get:
+\begin{verbatim}
+Mean Difference: -1689880.2 
+Median Difference: -859409.0 
+\end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{large_diff-.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+We can conclude that also on large instances, ACO performs worse than GA with singificance of $0.05$.
+As before, we also include the standard deviation of the solutions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{larg_var.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\end{document}
