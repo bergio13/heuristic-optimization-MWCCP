@@ -1,10 +1,15 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{float}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\graphicspath{{images}}
 
 \title{Programming Project 2}
-\author{Giorgio Bertone, Jura }
+\author{Giorgio Bertone, Jura Hostic}
 \date{December 2024}
+
 
 \begin{document}
 
@@ -79,6 +84,181 @@ The MaxMin Ant System (MMAS) is a variation of the ACO metaheuristic, that contr
 
 \end{enumerate}
 
+\section{Task 2}
+
+\subsection{SMAC3}
+For the hyperparameter optimization process we used SMAC3. SMAC3 is an open-source optimization framework design for challenging algorithm configuration and hyperparameter optimization problems.
+The framework uses Bayesian Optimization in combination with an aggresive racing mechanism to eficiently deterime which configurations are the best while balancing exploration and exploitation.
+The \href{https://jmlr.org/papers/v23/21-0888.html}{research paper} is and the \href{https://github.com/automl/SMAC3}{framework} is available for use.
+
+\subsection{Final Configurations}
+The hyperparameter optimizations was done on medium tuning instances for time reasons. Smaller experiments were done on other instances with similar results.
+The SMAC3 framework was used.
+
+For evaluating fitness, the algorithms were run on all medium tuning instances and the fitness was calculated using the cumulative cost and time using the following formula:
+\[
+F =
+\begin{cases}
+	C \cdot T & \text{if } T \leq 60 \, \text{s}, \\
+	\frac{C \cdot T}{60} & \text{if } T > 60 \, \text{s}.
+\end{cases}
+\]
+The formula penalises longer running times which become too long on bigger instances, while considering all configurations with reasonable running times the same time wise to
+allow for limiting the comparison to the quality of the solutions. The time cutoff for penalisation was set to 60 seconds from testing the time differences of medium and large instances.
+
+\subsubsection{Genetic Algorithm}
+The genetic algorithm parameters was optimized using the following intervals:
+\begin{align*}
+	\text{Population Size:} & \quad [20, 250] \\
+	\text{Generations:} & \quad [10, 250] \\
+	\text{Elite Size:} & \quad [0, 20] \\
+	\text{Tournament Size:} & \quad [3, 30] \\
+	\text{Mutation Rate:} & \quad [0.1, 0.6] \\
+	\text{Crossover Rate:} & \quad [0.4, 1] \\
+	\text{Constraint Penalty:} & \quad [10{,}000, 1{,}000{,}000]
+\end{align*}
+
+The tuning process was run for 250 trials. The best configuration found was:
+\begin{align*}
+	\text{Population Size:} & \quad 40 \\
+	\text{Generations:} & \quad 150 \\
+	\text{Elite Size:} & \quad 13 \\
+	\text{Tournament Size:} & \quad 25 \\
+	\text{Mutation Rate:} & \quad 0.255 \\
+	\text{Crossover Rate:} & \quad 0.79 \\
+	\text{Constraint Penalty:} & \quad 213178
+\end{align*}
+
+\subsubsection{Ant Colony Optimization}
+The ant colony optimization parameters was optimized using the following intervals:
+\begin{align*}
+    \text{Alpha:} & \quad [1.0, 2.0] \\
+    \text{Beta:} & \quad [1.0, 2.0] \\
+    \text{Evaporation Rate:} & \quad [0.1, 0.9] \\
+    \text{Ant Count:} & \quad [20, 100] \\
+    \text{Iterations:} & \quad [50, 250] \\
+    \text{Tau Min:} & \quad [0.1, 1.0] \\
+    \text{Tau Max:} & \quad [1.0, 10.0]
+\end{align*}
+The tuning process was run for 250 trials. The best configuration found was:
+\begin{align*}
+    \text{Alpha:} & \quad 1.87 \\
+    \text{Beta:} & \quad 1.07 \\
+    \text{Evaporation Rate:} & \quad 0.69 \\
+    \text{Ant Count:} & \quad 22 \\
+    \text{Iterations:} & \quad 55 \\
+    \text{Tau Min:} & \quad 0.51 \\
+    \text{Tau Max:} & \quad 7.85
+\end{align*}
+
+\subsection{Influence of Parameters}
+The paramaters which were chosen during the optimization process strike a balance between solution quality and the time required to find it.
+The following graphs show the influence of different parameters on the solution quality and the time required to find it.
+In most of them, you can see that the parameter value which was chosen during the optimization process (Red dots in graphs) is often one of the best values for the cost and time trade-off.
+The graphs are cumulative cost and time over all medium tuning instances, with the parameter values being the same as the ones used in the final configuration except for the parameter being tested.
+\subsubsection{Genetic Algorithm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_population_size.png}
+    \caption{Influence of Population Size on Fitness}
+    \label{fig:pop_size}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_generations.png}
+    \caption{Influence of Generations on Fitness}
+    \label{fig:generations}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_elite_size.png}
+    \caption{Influence of Elite Size on Fitness}
+    \label{fig:elite_size}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_tournament_size.png}
+    \caption{Influence of Tournament Size on Fitness}
+    \label{fig:tournament_size}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_mutation_rate.png}
+    \caption{Influence of Mutation Rate on Fitness}
+    \label{fig:mutation_rate}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_crossover_rate.png}
+    \caption{Influence of Crossover Rate on Fitness}
+    \label{fig:crossover_rate}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_constraint_penalty.png}
+    \caption{Influence of Constraint Penalty on Fitness}
+    \label{fig:constraint_penalty}
+\end{figure}
+
+\subsubsection{Ant Colony Optimization}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_alpha.png}
+    \caption{Influence of Alpha on Fitness}
+    \label{fig:alpha}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_beta.png}
+    \caption{Influence of Beta on Fitness}
+    \label{fig:beta}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_evaporation_rate.png}
+    \caption{Influence of Evaporation Rate on Fitness}
+    \label{fig:evaporation_rate}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_ant_count.png}
+    \caption{Influence of Ant Count on Fitness}
+    \label{fig:ant_count}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_iterations.png}
+    \caption{Influence of Iterations on Fitness}
+    \label{fig:iterations}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_tau_min.png}
+    \caption{Influence of Tau Min on Fitness}
+    \label{fig:tau_min}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{effect_of_tau_max.png}
+    \caption{Influence of Tau Max on Fitness}
+    \label{fig:tau_max}
+\end{figure}
+
+\subsection{Bottlenecks}
+
+TODO
 
 
 \section{Task 3}
