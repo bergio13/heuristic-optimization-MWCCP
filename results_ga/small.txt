@@ -1,78 +1,321 @@
 GA Parameters: GAParameters(population_size=40, generations=150, elite_size=13, tournament_size=25, mutation_rate=0.255, crossover_rate=0.79, constraint_penalty=213178)
-content/test/small/inst_50_4_00006 - 0.27 - 2970.0
-content/test/small/inst_50_4_00006 - 0.28 - 2983.0
-content/test/small/inst_50_4_00006 - 0.27 - 2965.0
-content/test/small/inst_50_4_00006 - 0.28 - 2967.0
-content/test/small/inst_50_4_00006 - 0.27 - 2972.0
-Average cost: 2971.40 - Std: 6.28
-Average time: 0.27 - Std: 0.00
-content/test/small/inst_50_4_00006 - 0.28 - 2976.0
-content/test/small/inst_50_4_00006 - 0.27 - 2976.0
-content/test/small/inst_50_4_00006 - 0.28 - 2967.0
-content/test/small/inst_50_4_00006 - 0.28 - 2983.0
-content/test/small/inst_50_4_00006 - 0.27 - 2976.0
-Average cost: 2975.60 - Std: 5.08
-Average time: 0.28 - Std: 0.00
-content/test/small/inst_50_4_00001 - 0.62 - 74291.0
-content/test/small/inst_50_4_00001 - 0.62 - 74271.0
-content/test/small/inst_50_4_00001 - 0.61 - 74326.0
-content/test/small/inst_50_4_00001 - 0.63 - 74303.0
-content/test/small/inst_50_4_00001 - 0.62 - 74296.0
-Average cost: 74297.40 - Std: 17.83
-Average time: 0.62 - Std: 0.01
-content/test/small/inst_50_4_00008 - 0.25 - 1407.0
-content/test/small/inst_50_4_00008 - 0.25 - 1403.0
-content/test/small/inst_50_4_00008 - 0.24 - 1407.0
-content/test/small/inst_50_4_00008 - 0.24 - 1403.0
-content/test/small/inst_50_4_00008 - 0.24 - 1414.0
-Average cost: 1406.80 - Std: 4.02
-Average time: 0.24 - Std: 0.00
-content/test/small/inst_50_4_00009 - 0.23 - 1315.0
-content/test/small/inst_50_4_00009 - 0.22 - 1335.0
-content/test/small/inst_50_4_00009 - 0.23 - 1306.0
-content/test/small/inst_50_4_00009 - 0.22 - 1304.0
-content/test/small/inst_50_4_00009 - 0.23 - 1311.0
-Average cost: 1314.20 - Std: 11.09
-Average time: 0.23 - Std: 0.00
-content/test/small/inst_50_4_00007 - 0.26 - 2051.0
-content/test/small/inst_50_4_00007 - 0.25 - 2055.0
-content/test/small/inst_50_4_00007 - 0.26 - 2047.0
-content/test/small/inst_50_4_00007 - 0.27 - 2053.0
-content/test/small/inst_50_4_00007 - 0.25 - 2060.0
-Average cost: 2053.20 - Std: 4.31
-Average time: 0.26 - Std: 0.00
-content/test/small/inst_50_4_00010 - 0.23 - 862.0
-content/test/small/inst_50_4_00010 - 0.22 - 862.0
-content/test/small/inst_50_4_00010 - 0.23 - 853.0
-content/test/small/inst_50_4_00010 - 0.23 - 853.0
-content/test/small/inst_50_4_00010 - 0.23 - 857.0
-Average cost: 857.40 - Std: 4.03
-Average time: 0.23 - Std: 0.00
-content/test/small/inst_50_4_00002 - 0.45 - 24016.0
-content/test/small/inst_50_4_00002 - 0.44 - 24003.0
-content/test/small/inst_50_4_00002 - 0.43 - 24117.0
-content/test/small/inst_50_4_00002 - 0.46 - 24013.0
-content/test/small/inst_50_4_00002 - 0.43 - 24003.0
-Average cost: 24030.40 - Std: 43.61
-Average time: 0.44 - Std: 0.01
-content/test/small/inst_50_4_00005 - 0.29 - 3620.0
-content/test/small/inst_50_4_00005 - 0.28 - 3602.0
-content/test/small/inst_50_4_00005 - 0.29 - 3622.0
-content/test/small/inst_50_4_00005 - 0.28 - 3599.0
-content/test/small/inst_50_4_00005 - 0.28 - 3613.0
-Average cost: 3611.20 - Std: 9.28
-Average time: 0.28 - Std: 0.00
-content/test/small/inst_50_4_00004 - 0.31 - 6551.0
-content/test/small/inst_50_4_00004 - 0.31 - 6534.0
-content/test/small/inst_50_4_00004 - 0.32 - 6540.0
-content/test/small/inst_50_4_00004 - 0.31 - 6547.0
-content/test/small/inst_50_4_00004 - 0.32 - 6547.0
-Average cost: 6543.80 - Std: 6.05
-Average time: 0.31 - Std: 0.00
-content/test/small/inst_50_4_00003 - 0.35 - 12317.0
-content/test/small/inst_50_4_00003 - 0.35 - 12329.0
-content/test/small/inst_50_4_00003 - 0.36 - 12285.0
-content/test/small/inst_50_4_00003 - 0.35 - 12342.0
-content/test/small/inst_50_4_00003 - 0.36 - 12286.0
-Average cost: 12311.80 - Std: 22.89
-Average time: 0.36 - Std: 0.00
+content/test/small/inst_50_4_00006 - 0.96 - 2984.0
+content/test/small/inst_50_4_00006 - 0.90 - 2973.0
+content/test/small/inst_50_4_00006 - 0.91 - 2985.0
+content/test/small/inst_50_4_00006 - 0.91 - 2985.0
+content/test/small/inst_50_4_00006 - 0.83 - 2977.0
+content/test/small/inst_50_4_00006 - 0.86 - 2970.0
+content/test/small/inst_50_4_00006 - 0.84 - 2973.0
+content/test/small/inst_50_4_00006 - 0.88 - 2977.0
+content/test/small/inst_50_4_00006 - 0.94 - 2963.0
+content/test/small/inst_50_4_00006 - 0.96 - 2970.0
+content/test/small/inst_50_4_00006 - 0.86 - 2978.0
+content/test/small/inst_50_4_00006 - 0.85 - 2967.0
+content/test/small/inst_50_4_00006 - 0.85 - 2970.0
+content/test/small/inst_50_4_00006 - 0.87 - 2965.0
+content/test/small/inst_50_4_00006 - 0.89 - 2971.0
+content/test/small/inst_50_4_00006 - 0.95 - 2981.0
+content/test/small/inst_50_4_00006 - 0.94 - 2959.0
+content/test/small/inst_50_4_00006 - 0.95 - 2966.0
+content/test/small/inst_50_4_00006 - 1.05 - 2989.0
+content/test/small/inst_50_4_00006 - 0.91 - 2969.0
+content/test/small/inst_50_4_00006 - 0.90 - 2980.0
+content/test/small/inst_50_4_00006 - 0.88 - 2968.0
+content/test/small/inst_50_4_00006 - 0.87 - 2967.0
+content/test/small/inst_50_4_00006 - 0.86 - 2973.0
+content/test/small/inst_50_4_00006 - 0.88 - 2964.0
+content/test/small/inst_50_4_00006 - 0.87 - 2967.0
+content/test/small/inst_50_4_00006 - 0.89 - 2985.0
+content/test/small/inst_50_4_00006 - 0.87 - 2984.0
+content/test/small/inst_50_4_00006 - 0.87 - 2975.0
+content/test/small/inst_50_4_00006 - 0.85 - 2969.0
+Average cost: 2973.47 - Std: 7.71
+Average time: 0.89 - Std: 0.05
+content/test/small/inst_50_4_00001 - 2.27 - 74270.0
+content/test/small/inst_50_4_00001 - 2.27 - 74339.0
+content/test/small/inst_50_4_00001 - 2.27 - 74272.0
+content/test/small/inst_50_4_00001 - 2.17 - 74267.0
+content/test/small/inst_50_4_00001 - 2.22 - 74327.0
+content/test/small/inst_50_4_00001 - 2.40 - 74379.0
+content/test/small/inst_50_4_00001 - 2.39 - 74372.0
+content/test/small/inst_50_4_00001 - 2.33 - 74277.0
+content/test/small/inst_50_4_00001 - 2.30 - 74247.0
+content/test/small/inst_50_4_00001 - 2.23 - 74334.0
+content/test/small/inst_50_4_00001 - 2.21 - 74374.0
+content/test/small/inst_50_4_00001 - 2.22 - 74319.0
+content/test/small/inst_50_4_00001 - 2.23 - 74281.0
+content/test/small/inst_50_4_00001 - 2.24 - 74280.0
+content/test/small/inst_50_4_00001 - 2.26 - 74362.0
+content/test/small/inst_50_4_00001 - 2.20 - 74294.0
+content/test/small/inst_50_4_00001 - 2.30 - 74286.0
+content/test/small/inst_50_4_00001 - 2.15 - 74342.0
+content/test/small/inst_50_4_00001 - 2.26 - 74279.0
+content/test/small/inst_50_4_00001 - 2.21 - 74296.0
+content/test/small/inst_50_4_00001 - 2.20 - 74355.0
+content/test/small/inst_50_4_00001 - 2.31 - 74281.0
+content/test/small/inst_50_4_00001 - 2.16 - 74271.0
+content/test/small/inst_50_4_00001 - 2.20 - 74252.0
+content/test/small/inst_50_4_00001 - 2.21 - 74288.0
+content/test/small/inst_50_4_00001 - 2.26 - 74316.0
+content/test/small/inst_50_4_00001 - 2.20 - 74315.0
+content/test/small/inst_50_4_00001 - 2.21 - 74305.0
+content/test/small/inst_50_4_00001 - 2.19 - 74342.0
+content/test/small/inst_50_4_00001 - 2.19 - 74313.0
+Average cost: 74307.83 - Std: 37.02
+Average time: 2.24 - Std: 0.06
+content/test/small/inst_50_4_00008 - 0.76 - 1410.0
+content/test/small/inst_50_4_00008 - 0.75 - 1425.0
+content/test/small/inst_50_4_00008 - 0.76 - 1422.0
+content/test/small/inst_50_4_00008 - 0.77 - 1415.0
+content/test/small/inst_50_4_00008 - 0.75 - 1407.0
+content/test/small/inst_50_4_00008 - 0.76 - 1436.0
+content/test/small/inst_50_4_00008 - 0.77 - 1407.0
+content/test/small/inst_50_4_00008 - 0.76 - 1417.0
+content/test/small/inst_50_4_00008 - 0.77 - 1411.0
+content/test/small/inst_50_4_00008 - 0.77 - 1405.0
+content/test/small/inst_50_4_00008 - 0.77 - 1450.0
+content/test/small/inst_50_4_00008 - 0.75 - 1425.0
+content/test/small/inst_50_4_00008 - 0.76 - 1425.0
+content/test/small/inst_50_4_00008 - 0.75 - 1409.0
+content/test/small/inst_50_4_00008 - 0.76 - 1423.0
+content/test/small/inst_50_4_00008 - 0.77 - 1416.0
+content/test/small/inst_50_4_00008 - 0.76 - 1424.0
+content/test/small/inst_50_4_00008 - 0.77 - 1409.0
+content/test/small/inst_50_4_00008 - 0.76 - 1415.0
+content/test/small/inst_50_4_00008 - 0.76 - 1413.0
+content/test/small/inst_50_4_00008 - 0.76 - 1407.0
+content/test/small/inst_50_4_00008 - 0.76 - 1405.0
+content/test/small/inst_50_4_00008 - 0.76 - 1415.0
+content/test/small/inst_50_4_00008 - 0.75 - 1414.0
+content/test/small/inst_50_4_00008 - 0.74 - 1411.0
+content/test/small/inst_50_4_00008 - 0.77 - 1407.0
+content/test/small/inst_50_4_00008 - 0.76 - 1407.0
+content/test/small/inst_50_4_00008 - 0.77 - 1409.0
+content/test/small/inst_50_4_00008 - 0.77 - 1422.0
+content/test/small/inst_50_4_00008 - 0.76 - 1407.0
+Average cost: 1415.60 - Std: 9.93
+Average time: 0.76 - Std: 0.01
+content/test/small/inst_50_4_00009 - 0.72 - 1305.0
+content/test/small/inst_50_4_00009 - 0.72 - 1316.0
+content/test/small/inst_50_4_00009 - 0.72 - 1305.0
+content/test/small/inst_50_4_00009 - 0.73 - 1336.0
+content/test/small/inst_50_4_00009 - 0.71 - 1318.0
+content/test/small/inst_50_4_00009 - 0.74 - 1304.0
+content/test/small/inst_50_4_00009 - 0.70 - 1306.0
+content/test/small/inst_50_4_00009 - 0.71 - 1310.0
+content/test/small/inst_50_4_00009 - 0.75 - 1299.0
+content/test/small/inst_50_4_00009 - 0.75 - 1318.0
+content/test/small/inst_50_4_00009 - 0.74 - 1313.0
+content/test/small/inst_50_4_00009 - 0.73 - 1322.0
+content/test/small/inst_50_4_00009 - 0.73 - 1311.0
+content/test/small/inst_50_4_00009 - 0.74 - 1330.0
+content/test/small/inst_50_4_00009 - 0.74 - 1307.0
+content/test/small/inst_50_4_00009 - 0.75 - 1325.0
+content/test/small/inst_50_4_00009 - 0.73 - 1317.0
+content/test/small/inst_50_4_00009 - 0.74 - 1297.0
+content/test/small/inst_50_4_00009 - 0.72 - 1318.0
+content/test/small/inst_50_4_00009 - 0.73 - 1306.0
+content/test/small/inst_50_4_00009 - 0.72 - 1309.0
+content/test/small/inst_50_4_00009 - 0.72 - 1327.0
+content/test/small/inst_50_4_00009 - 0.72 - 1315.0
+content/test/small/inst_50_4_00009 - 0.76 - 1309.0
+content/test/small/inst_50_4_00009 - 0.72 - 1309.0
+content/test/small/inst_50_4_00009 - 0.73 - 1334.0
+content/test/small/inst_50_4_00009 - 0.76 - 1305.0
+content/test/small/inst_50_4_00009 - 0.76 - 1339.0
+content/test/small/inst_50_4_00009 - 0.76 - 1303.0
+content/test/small/inst_50_4_00009 - 0.74 - 1327.0
+Average cost: 1314.67 - Std: 10.94
+Average time: 0.73 - Std: 0.02
+content/test/small/inst_50_4_00007 - 0.86 - 2068.0
+content/test/small/inst_50_4_00007 - 0.83 - 2043.0
+content/test/small/inst_50_4_00007 - 0.85 - 2051.0
+content/test/small/inst_50_4_00007 - 0.82 - 2057.0
+content/test/small/inst_50_4_00007 - 0.83 - 2047.0
+content/test/small/inst_50_4_00007 - 0.82 - 2047.0
+content/test/small/inst_50_4_00007 - 0.79 - 2047.0
+content/test/small/inst_50_4_00007 - 0.83 - 2068.0
+content/test/small/inst_50_4_00007 - 0.83 - 2053.0
+content/test/small/inst_50_4_00007 - 0.85 - 2045.0
+content/test/small/inst_50_4_00007 - 0.83 - 2045.0
+content/test/small/inst_50_4_00007 - 0.82 - 2048.0
+content/test/small/inst_50_4_00007 - 0.83 - 2050.0
+content/test/small/inst_50_4_00007 - 0.85 - 2057.0
+content/test/small/inst_50_4_00007 - 0.87 - 2056.0
+content/test/small/inst_50_4_00007 - 0.83 - 2050.0
+content/test/small/inst_50_4_00007 - 0.84 - 2063.0
+content/test/small/inst_50_4_00007 - 0.84 - 2050.0
+content/test/small/inst_50_4_00007 - 0.82 - 2050.0
+content/test/small/inst_50_4_00007 - 0.81 - 2056.0
+content/test/small/inst_50_4_00007 - 0.83 - 2052.0
+content/test/small/inst_50_4_00007 - 0.81 - 2045.0
+content/test/small/inst_50_4_00007 - 0.82 - 2055.0
+content/test/small/inst_50_4_00007 - 0.82 - 2045.0
+content/test/small/inst_50_4_00007 - 0.82 - 2050.0
+content/test/small/inst_50_4_00007 - 0.82 - 2055.0
+content/test/small/inst_50_4_00007 - 0.82 - 2051.0
+content/test/small/inst_50_4_00007 - 0.81 - 2049.0
+content/test/small/inst_50_4_00007 - 0.83 - 2066.0
+content/test/small/inst_50_4_00007 - 0.82 - 2050.0
+Average cost: 2052.30 - Std: 6.66
+Average time: 0.83 - Std: 0.02
+content/test/small/inst_50_4_00010 - 0.69 - 851.0
+content/test/small/inst_50_4_00010 - 0.69 - 852.0
+content/test/small/inst_50_4_00010 - 0.70 - 852.0
+content/test/small/inst_50_4_00010 - 0.69 - 852.0
+content/test/small/inst_50_4_00010 - 0.71 - 854.0
+content/test/small/inst_50_4_00010 - 0.71 - 852.0
+content/test/small/inst_50_4_00010 - 0.71 - 853.0
+content/test/small/inst_50_4_00010 - 0.71 - 852.0
+content/test/small/inst_50_4_00010 - 0.70 - 863.0
+content/test/small/inst_50_4_00010 - 0.69 - 860.0
+content/test/small/inst_50_4_00010 - 0.70 - 855.0
+content/test/small/inst_50_4_00010 - 0.69 - 853.0
+content/test/small/inst_50_4_00010 - 0.71 - 855.0
+content/test/small/inst_50_4_00010 - 0.70 - 851.0
+content/test/small/inst_50_4_00010 - 0.68 - 852.0
+content/test/small/inst_50_4_00010 - 0.71 - 853.0
+content/test/small/inst_50_4_00010 - 0.72 - 855.0
+content/test/small/inst_50_4_00010 - 0.69 - 856.0
+content/test/small/inst_50_4_00010 - 0.69 - 855.0
+content/test/small/inst_50_4_00010 - 0.68 - 858.0
+content/test/small/inst_50_4_00010 - 0.70 - 858.0
+content/test/small/inst_50_4_00010 - 0.69 - 852.0
+content/test/small/inst_50_4_00010 - 0.70 - 853.0
+content/test/small/inst_50_4_00010 - 0.68 - 852.0
+content/test/small/inst_50_4_00010 - 0.70 - 854.0
+content/test/small/inst_50_4_00010 - 0.70 - 855.0
+content/test/small/inst_50_4_00010 - 0.69 - 859.0
+content/test/small/inst_50_4_00010 - 0.69 - 858.0
+content/test/small/inst_50_4_00010 - 0.71 - 857.0
+content/test/small/inst_50_4_00010 - 0.70 - 857.0
+Average cost: 854.63 - Std: 2.94
+Average time: 0.70 - Std: 0.01
+content/test/small/inst_50_4_00002 - 1.56 - 24011.0
+content/test/small/inst_50_4_00002 - 1.40 - 24021.0
+content/test/small/inst_50_4_00002 - 1.51 - 23992.0
+content/test/small/inst_50_4_00002 - 1.52 - 24057.0
+content/test/small/inst_50_4_00002 - 1.52 - 24045.0
+content/test/small/inst_50_4_00002 - 1.44 - 24028.0
+content/test/small/inst_50_4_00002 - 1.54 - 24046.0
+content/test/small/inst_50_4_00002 - 1.51 - 24012.0
+content/test/small/inst_50_4_00002 - 1.49 - 24042.0
+content/test/small/inst_50_4_00002 - 1.49 - 23986.0
+content/test/small/inst_50_4_00002 - 1.51 - 24019.0
+content/test/small/inst_50_4_00002 - 1.48 - 24044.0
+content/test/small/inst_50_4_00002 - 1.55 - 24033.0
+content/test/small/inst_50_4_00002 - 1.57 - 24039.0
+content/test/small/inst_50_4_00002 - 1.53 - 24035.0
+content/test/small/inst_50_4_00002 - 1.51 - 24020.0
+content/test/small/inst_50_4_00002 - 1.54 - 23992.0
+content/test/small/inst_50_4_00002 - 1.49 - 24034.0
+content/test/small/inst_50_4_00002 - 1.57 - 24016.0
+content/test/small/inst_50_4_00002 - 1.47 - 24071.0
+content/test/small/inst_50_4_00002 - 1.49 - 23996.0
+content/test/small/inst_50_4_00002 - 1.50 - 24029.0
+content/test/small/inst_50_4_00002 - 1.46 - 24014.0
+content/test/small/inst_50_4_00002 - 1.49 - 24006.0
+content/test/small/inst_50_4_00002 - 1.51 - 23998.0
+content/test/small/inst_50_4_00002 - 1.44 - 24016.0
+content/test/small/inst_50_4_00002 - 1.38 - 24015.0
+content/test/small/inst_50_4_00002 - 1.52 - 24026.0
+content/test/small/inst_50_4_00002 - 1.44 - 24038.0
+content/test/small/inst_50_4_00002 - 1.55 - 24006.0
+Average cost: 24022.90 - Std: 19.96
+Average time: 1.50 - Std: 0.04
+content/test/small/inst_50_4_00005 - 0.91 - 3589.0
+content/test/small/inst_50_4_00005 - 0.96 - 3607.0
+content/test/small/inst_50_4_00005 - 0.95 - 3603.0
+content/test/small/inst_50_4_00005 - 0.95 - 3620.0
+content/test/small/inst_50_4_00005 - 0.94 - 3622.0
+content/test/small/inst_50_4_00005 - 0.91 - 3612.0
+content/test/small/inst_50_4_00005 - 0.93 - 3591.0
+content/test/small/inst_50_4_00005 - 0.91 - 3610.0
+content/test/small/inst_50_4_00005 - 0.91 - 3610.0
+content/test/small/inst_50_4_00005 - 0.91 - 3616.0
+content/test/small/inst_50_4_00005 - 0.93 - 3605.0
+content/test/small/inst_50_4_00005 - 0.91 - 3582.0
+content/test/small/inst_50_4_00005 - 0.92 - 3588.0
+content/test/small/inst_50_4_00005 - 0.91 - 3607.0
+content/test/small/inst_50_4_00005 - 0.95 - 3588.0
+content/test/small/inst_50_4_00005 - 0.91 - 3595.0
+content/test/small/inst_50_4_00005 - 0.95 - 3595.0
+content/test/small/inst_50_4_00005 - 0.92 - 3614.0
+content/test/small/inst_50_4_00005 - 0.91 - 3598.0
+content/test/small/inst_50_4_00005 - 0.91 - 3590.0
+content/test/small/inst_50_4_00005 - 0.93 - 3593.0
+content/test/small/inst_50_4_00005 - 0.94 - 3601.0
+content/test/small/inst_50_4_00005 - 0.91 - 3587.0
+content/test/small/inst_50_4_00005 - 0.93 - 3585.0
+content/test/small/inst_50_4_00005 - 0.90 - 3603.0
+content/test/small/inst_50_4_00005 - 0.94 - 3595.0
+content/test/small/inst_50_4_00005 - 0.93 - 3588.0
+content/test/small/inst_50_4_00005 - 0.91 - 3607.0
+content/test/small/inst_50_4_00005 - 0.94 - 3593.0
+content/test/small/inst_50_4_00005 - 0.94 - 3608.0
+Average cost: 3600.07 - Std: 10.90
+Average time: 0.92 - Std: 0.02
+content/test/small/inst_50_4_00004 - 1.05 - 6549.0
+content/test/small/inst_50_4_00004 - 1.04 - 6542.0
+content/test/small/inst_50_4_00004 - 1.03 - 6560.0
+content/test/small/inst_50_4_00004 - 1.07 - 6537.0
+content/test/small/inst_50_4_00004 - 1.01 - 6570.0
+content/test/small/inst_50_4_00004 - 1.06 - 6540.0
+content/test/small/inst_50_4_00004 - 1.04 - 6560.0
+content/test/small/inst_50_4_00004 - 1.07 - 6566.0
+content/test/small/inst_50_4_00004 - 1.01 - 6561.0
+content/test/small/inst_50_4_00004 - 1.02 - 6546.0
+content/test/small/inst_50_4_00004 - 1.02 - 6552.0
+content/test/small/inst_50_4_00004 - 1.02 - 6553.0
+content/test/small/inst_50_4_00004 - 1.03 - 6539.0
+content/test/small/inst_50_4_00004 - 1.04 - 6589.0
+content/test/small/inst_50_4_00004 - 1.02 - 6554.0
+content/test/small/inst_50_4_00004 - 1.03 - 6562.0
+content/test/small/inst_50_4_00004 - 1.06 - 6557.0
+content/test/small/inst_50_4_00004 - 1.04 - 6541.0
+content/test/small/inst_50_4_00004 - 1.05 - 6557.0
+content/test/small/inst_50_4_00004 - 1.02 - 6546.0
+content/test/small/inst_50_4_00004 - 1.03 - 6551.0
+content/test/small/inst_50_4_00004 - 1.07 - 6566.0
+content/test/small/inst_50_4_00004 - 1.04 - 6540.0
+content/test/small/inst_50_4_00004 - 1.01 - 6568.0
+content/test/small/inst_50_4_00004 - 1.01 - 6592.0
+content/test/small/inst_50_4_00004 - 1.03 - 6571.0
+content/test/small/inst_50_4_00004 - 1.82 - 6538.0
+content/test/small/inst_50_4_00004 - 1.03 - 6561.0
+content/test/small/inst_50_4_00004 - 1.04 - 6570.0
+content/test/small/inst_50_4_00004 - 1.04 - 6545.0
+Average cost: 6556.10 - Std: 13.90
+Average time: 1.06 - Std: 0.14
+content/test/small/inst_50_4_00003 - 1.17 - 12322.0
+content/test/small/inst_50_4_00003 - 1.20 - 12309.0
+content/test/small/inst_50_4_00003 - 1.20 - 12323.0
+content/test/small/inst_50_4_00003 - 1.15 - 12351.0
+content/test/small/inst_50_4_00003 - 1.19 - 12305.0
+content/test/small/inst_50_4_00003 - 1.21 - 12302.0
+content/test/small/inst_50_4_00003 - 1.19 - 12291.0
+content/test/small/inst_50_4_00003 - 1.19 - 12317.0
+content/test/small/inst_50_4_00003 - 1.21 - 12311.0
+content/test/small/inst_50_4_00003 - 1.17 - 12288.0
+content/test/small/inst_50_4_00003 - 1.23 - 12301.0
+content/test/small/inst_50_4_00003 - 1.21 - 12322.0
+content/test/small/inst_50_4_00003 - 1.21 - 12339.0
+content/test/small/inst_50_4_00003 - 1.22 - 12302.0
+content/test/small/inst_50_4_00003 - 1.18 - 12283.0
+content/test/small/inst_50_4_00003 - 1.23 - 12293.0
+content/test/small/inst_50_4_00003 - 1.19 - 12347.0
+content/test/small/inst_50_4_00003 - 1.21 - 12292.0
+content/test/small/inst_50_4_00003 - 1.20 - 12333.0
+content/test/small/inst_50_4_00003 - 1.15 - 12321.0
+content/test/small/inst_50_4_00003 - 1.18 - 12357.0
+content/test/small/inst_50_4_00003 - 1.21 - 12308.0
+content/test/small/inst_50_4_00003 - 1.29 - 12293.0
+content/test/small/inst_50_4_00003 - 1.17 - 12326.0
+content/test/small/inst_50_4_00003 - 1.17 - 12305.0
+content/test/small/inst_50_4_00003 - 1.18 - 12294.0
+content/test/small/inst_50_4_00003 - 1.19 - 12288.0
+content/test/small/inst_50_4_00003 - 1.19 - 12292.0
+content/test/small/inst_50_4_00003 - 1.20 - 12278.0
+content/test/small/inst_50_4_00003 - 1.22 - 12310.0
+Average cost: 12310.10 - Std: 20.28
+Average time: 1.20 - Std: 0.03
