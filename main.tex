@@ -4,8 +4,6 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 
-\graphicspath{{images}}
-
 \title{Programming Project 2}
 \author{Giorgio Bertone, Jura Hostic}
 \date{December 2024}
@@ -259,6 +257,15 @@ The graphs are cumulative cost and time over all medium tuning instances, with t
 \subsection{Bottlenecks}
 
 \subsubsection{Genetic Algorithm}
+In the genetic algorithm, the cost function is almost exclusively the bottleneck. About 96\% of the time is spent on the cost function, with other functions like the repair mechanism and generating
+the new generation taking up most of the remaining time. The runtime could be greatly improved by optimizing the cost function.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{ga_bottleneck.png}
+    \caption{Bottleneck Analysis for GA (large instances)}
+    \label{fig:ga_bottleneck}
+\end{figure}
 
 \subsubsection{Ant Colony Optimization}
 In the ant colony optimization algorithm, the cost function is by far the biggest bottleneck. About 81\% of the time is spent on the cost function.
@@ -268,7 +275,7 @@ The runtime could be greatly improved by optimizing the cost function.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{aco_bottleneck.png}
-    \caption{Bottleneck Analysis for ACO}
+    \caption{Bottleneck Analysis for ACO (medium-large instances)}
     \label{fig:aco_bottleneck}
 \end{figure}
 

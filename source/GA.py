@@ -225,9 +225,11 @@ def solve_mwccp(graph: 'Graph', params: GAParameters = None) -> Tuple[List[int],
 
 # Test the bottleneck using profiling
 if __name__ == "__main__":
+    medium_path = "../content/tuning/medium/"
     medium_large_path = "../content/tuning/medium_large/"
-    medium_large_instances = [medium_large_path + f for f in os.listdir(medium_large_path) if
+    medium_instances = [medium_path + f for f in os.listdir(medium_path) if
                               not f.endswith("DS_Store")]
+    medium_large_instances = [medium_large_path + f for f in os.listdir(medium_large_path) if not f.endswith("DS_Store")]
     graphs = [load_instance(f) for f in medium_large_instances]
 
     GA_params = GAParameters(
