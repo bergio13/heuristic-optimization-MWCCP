@@ -1,9 +1,10 @@
+import os
 import random
 from collections import deque
 
 import numpy as np
 
-from source.structs import cost_function_bit
+from source.structs import cost_function_bit, load_instance
 
 
 class MaxMinAntSystem:
@@ -120,7 +121,8 @@ class MaxMinAntSystem:
         best_solution = None
         best_cost = float('inf')
 
-        for _ in range(self.iterations):
+        for i in range(self.iterations):
+            print(f"Iteration {i + 1}/{self.iterations}")
             solutions = []
             fitnesses = []
 
@@ -142,3 +144,26 @@ class MaxMinAntSystem:
             self.tau_min = self.tau_max / (2 * len(self.graph.V))
 
         return best_solution, best_cost
+
+# Test the bottleneck using profiling
+if __name__ == "__main__":
+    medium_large_path = "../content/tuning/medium_large/"
+    medium_large_instances = [medium_large_path + f for f in os.listdir(medium_large_path) if not f.endswith("DS_Store")]
+    graphs = [load_instance(f) for f in medium_large_instances]
+
+    solutions = []
+
+    ACO_params = {
+        'alpha': 1.87,
+        'beta': 1.07,
+        'evaporation_rate': 0.69,
+        'ant_count': 22,
+        'iterations': 55,
+        'tau_min': 0.51,
+        'tau_max': 7.85
+    }
+
+    for graph in graphs:
+        mmas = MaxMinAntSystem(graph, **ACO_params)
+        solution, cost = mmas.ant_colony_optimization()
+        solutions.append((solution, cost))

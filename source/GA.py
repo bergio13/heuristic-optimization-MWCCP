@@ -1,11 +1,12 @@
 import abc
+import os
 import random
 from collections import deque
 from dataclasses import dataclass
 from statistics import mean
 from typing import List, Tuple
 
-from source.structs import cost_function_bit
+from source.structs import cost_function_bit, load_instance
 
 
 @dataclass
@@ -221,3 +222,26 @@ def solve_mwccp(graph: 'Graph', params: GAParameters = None) -> Tuple[List[int],
     ga = GeneticAlgorithmMWCCP(graph, params)
     solution, cost = ga.run()
     return solution, cost
+
+# Test the bottleneck using profiling
+if __name__ == "__main__":
+    medium_large_path = "../content/tuning/medium_large/"
+    medium_large_instances = [medium_large_path + f for f in os.listdir(medium_large_path) if
+                              not f.endswith("DS_Store")]
+    graphs = [load_instance(f) for f in medium_large_instances]
+
+    GA_params = GAParameters(
+        population_size=40,
+        generations=150,
+        elite_size=13,
+        tournament_size=25,
+        mutation_rate=0.255,
+        crossover_rate=0.79,
+        constraint_penalty=213178
+    )
+
+    solutions = []
+
+    for graph in graphs:
+        solution, cost = solve_mwccp(graph, GA_params)
+        solutions.append((solution, cost))

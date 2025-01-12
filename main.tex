@@ -258,8 +258,19 @@ The graphs are cumulative cost and time over all medium tuning instances, with t
 
 \subsection{Bottlenecks}
 
-TODO
+\subsubsection{Genetic Algorithm}
 
+\subsubsection{Ant Colony Optimization}
+In the ant colony optimization algorithm, the cost function is by far the biggest bottleneck. About 81\% of the time is spent on the cost function.
+The next biggest bottleneck is the solution construction, which takes about 18\% of the time including all of its methods like the repair and validation methods.
+The runtime could be greatly improved by optimizing the cost function.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{aco_bottleneck.png}
+    \caption{Bottleneck Analysis for ACO}
+    \label{fig:aco_bottleneck}
+\end{figure}
 
 \section{Task 3}
 
